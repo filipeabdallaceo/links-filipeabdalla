@@ -151,12 +151,17 @@ function DropLine({
   scrollYProgress: ReturnType<typeof useScroll>["scrollYProgress"];
   range: [number, number];
 }) {
-  // A linha "se desenha" do topo pra baixo conforme o scroll avança na faixa dela
-  const height = useTransform(scrollYProgress, range, ["0vh", "100vh"]);
-  // Fade in/out nas bordas da faixa pra entrar/sair sem corte
+  const [start, end] = range;
+  // Clamp inputs to [0, 1] e garante strictly increasing pra não quebrar WAAPI
+  const fadeIn = Math.max(0, start - 0.04);
+  const fadeOut = Math.min(1, end + 0.06);
+
+  // Linha "se desenha" do topo pra baixo conforme o scroll avança na faixa dela
+  const height = useTransform(scrollYProgress, [start, end], ["0vh", "100vh"]);
+  // Fade in/out nas bordas
   const opacity = useTransform(
     scrollYProgress,
-    [range[0] - 0.04, range[0], range[1] - 0.02, range[1] + 0.06],
+    [fadeIn, start, end, fadeOut],
     [0, 1, 1, 0],
   );
 
