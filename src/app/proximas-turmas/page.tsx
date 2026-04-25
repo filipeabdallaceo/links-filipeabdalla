@@ -125,52 +125,20 @@ function Hero() {
   );
 }
 
-// Silhueta simplificada do Brasil (viewBox 0 0 100 110)
-// Pontos extremos: Roraima/Amapá (norte), Cabo Branco/PB (NE - 99x), Chuí (sul - 109y), Acre (oeste - 0x)
-const BRAZIL_PATH = [
-  "M 35,2",
-  "Q 45,1 55,3",
-  "Q 62,4 65,6",
-  "L 70,3 L 76,5",
-  "Q 79,7 78,12",
-  "L 76,18 L 75,24",
-  "L 78,25",
-  "Q 87,21 93,25",
-  "L 98,30 L 99,35",
-  "Q 96,42 92,48",
-  "L 89,55 L 86,62",
-  "Q 84,68 80,73",
-  "L 76,78",
-  "L 70,82",
-  "L 65,89",
-  "L 62,95",
-  "L 58,103",
-  "L 52,109 L 47,108",
-  "Q 42,103 38,98",
-  "L 33,90",
-  "L 26,82 L 22,75",
-  "L 16,68 L 12,60",
-  "L 8,52 L 5,45",
-  "L 1,40 L 0,36",
-  "Q 3,28 8,22",
-  "L 16,15 L 22,9",
-  "L 28,4",
-  "Z",
-].join(" ");
-
+// Cidades posicionadas em % dentro do container (calibradas pra /img/brazil.svg real)
 const CITIES = [
-  // Confirmed (das 4 turmas) — coordenadas dentro da silhueta
-  { name: "Florianópolis", cx: 60, cy: 96, label: "FLORIPA", confirmed: true },
-  { name: "Campo Grande", cx: 42, cy: 76, label: "CG", confirmed: true },
-  { name: "Brasília", cx: 60, cy: 60, label: "BRASÍLIA", confirmed: true },
-  { name: "São Paulo", cx: 65, cy: 82, label: "SP", confirmed: true },
+  // Confirmed (das 4 turmas)
+  { name: "Florianópolis", x: 58, y: 88, label: "FLORIPA", confirmed: true },
+  { name: "Campo Grande", x: 47, y: 70, label: "CG", confirmed: true },
+  { name: "Brasília", x: 60, y: 56, label: "BRASÍLIA", confirmed: true },
+  { name: "São Paulo", x: 62, y: 76, label: "SP", confirmed: true },
   // Atmosphere (não confirmadas, só visual)
-  { name: "Manaus", cx: 25, cy: 28, label: "", confirmed: false },
-  { name: "Fortaleza", cx: 86, cy: 25, label: "", confirmed: false },
-  { name: "Recife", cx: 95, cy: 36, label: "", confirmed: false },
-  { name: "Salvador", cx: 87, cy: 55, label: "", confirmed: false },
-  { name: "BH", cx: 70, cy: 70, label: "", confirmed: false },
-  { name: "Rio", cx: 75, cy: 78, label: "", confirmed: false },
+  { name: "Manaus", x: 30, y: 30, label: "", confirmed: false },
+  { name: "Fortaleza", x: 78, y: 24, label: "", confirmed: false },
+  { name: "Recife", x: 88, y: 36, label: "", confirmed: false },
+  { name: "Salvador", x: 82, y: 50, label: "", confirmed: false },
+  { name: "BH", x: 67, y: 66, label: "", confirmed: false },
+  { name: "Rio", x: 72, y: 73, label: "", confirmed: false },
 ];
 
 function BigBrazilMap() {
@@ -179,107 +147,95 @@ function BigBrazilMap() {
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.8, delay: 0.2 }}
-      className="relative mx-auto mt-10 h-[320px] w-full max-w-[560px] sm:h-[460px]"
+      className="relative mx-auto mt-10 aspect-square w-full max-w-[520px]"
     >
-      <svg
-        viewBox="0 0 100 110"
-        className="absolute inset-0 h-full w-full"
-        preserveAspectRatio="xMidYMid meet"
-      >
-        <defs>
-          <radialGradient id="big-pin-glow">
-            <stop offset="0%" stopColor="#67e8f9" stopOpacity="0.95" />
-            <stop offset="40%" stopColor="#22d3ee" stopOpacity="0.4" />
-            <stop offset="100%" stopColor="#22d3ee" stopOpacity="0" />
-          </radialGradient>
-          <linearGradient id="brazil-big-fill" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#22d3ee" stopOpacity="0.12" />
-            <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.08" />
-          </linearGradient>
-          <linearGradient id="route-grad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#67e8f9" stopOpacity="0.6" />
-            <stop offset="100%" stopColor="#818cf8" stopOpacity="0.6" />
-          </linearGradient>
-        </defs>
+      {/* Silhueta real do Brasil via mask */}
+      <div
+        className="absolute inset-0"
+        style={{
+          WebkitMaskImage: "url(/img/brazil.svg)",
+          maskImage: "url(/img/brazil.svg)",
+          WebkitMaskSize: "contain",
+          maskSize: "contain",
+          WebkitMaskRepeat: "no-repeat",
+          maskRepeat: "no-repeat",
+          WebkitMaskPosition: "center",
+          maskPosition: "center",
+          background:
+            "linear-gradient(180deg, rgba(34,211,238,0.18) 0%, rgba(59,130,246,0.10) 100%)",
+        }}
+      />
+      {/* Stroke / borda */}
+      <div
+        className="absolute inset-0 opacity-70"
+        style={{
+          WebkitMaskImage: "url(/img/brazil.svg)",
+          maskImage: "url(/img/brazil.svg)",
+          WebkitMaskSize: "contain",
+          maskSize: "contain",
+          WebkitMaskRepeat: "no-repeat",
+          maskRepeat: "no-repeat",
+          WebkitMaskPosition: "center",
+          maskPosition: "center",
+          boxShadow: "inset 0 0 0 1.5px rgba(103,232,249,0.55)",
+        }}
+      />
 
-        {/* Silhueta do Brasil — backdrop */}
-        <path
-          d={BRAZIL_PATH}
-          fill="url(#brazil-big-fill)"
-          stroke="#67e8f9"
-          strokeOpacity="0.65"
-          strokeWidth="0.5"
-          strokeLinejoin="round"
-        />
-
-        {/* Routes conectando as 4 cidades confirmadas (Floripa → SP → CG → Brasília) */}
-        <g
-          stroke="url(#route-grad)"
-          strokeWidth="0.45"
-          strokeDasharray="1.5 1.5"
-          fill="none"
+      {/* Cidades */}
+      {CITIES.map((c, i) => (
+        <div
+          key={c.name}
+          className="absolute -translate-x-1/2 -translate-y-1/2"
+          style={{ left: `${c.x}%`, top: `${c.y}%` }}
         >
-          <line x1="60" y1="96" x2="65" y2="82" />
-          <line x1="65" y1="82" x2="42" y2="76" />
-          <line x1="42" y1="76" x2="60" y2="60" />
-        </g>
+          {/* Glow */}
+          <div
+            className={[
+              "absolute -translate-x-1/2 -translate-y-1/2 rounded-full",
+              c.confirmed ? "bg-cyan-300/60 blur-md" : "bg-white/30 blur-sm",
+            ].join(" ")}
+            style={{
+              width: c.confirmed ? 28 : 14,
+              height: c.confirmed ? 28 : 14,
+              animation: c.confirmed
+                ? `bigPulse 2.5s ease-in-out ${i * 0.3}s infinite`
+                : undefined,
+            }}
+          />
+          {/* Dot */}
+          <div
+            className={[
+              "absolute -translate-x-1/2 -translate-y-1/2 rounded-full",
+              c.confirmed
+                ? "bg-cyan-200 shadow-[0_0_10px_3px_rgba(103,232,249,0.7)]"
+                : "bg-white/70",
+            ].join(" ")}
+            style={{
+              width: c.confirmed ? 7 : 4,
+              height: c.confirmed ? 7 : 4,
+            }}
+          />
+          {/* Label (só confirmadas) */}
+          {c.confirmed && (
+            <div
+              className="absolute left-1/2 -translate-x-1/2 mt-3 whitespace-nowrap text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-cyan-200/95"
+              style={{ top: 6 }}
+            >
+              {c.label}
+            </div>
+          )}
+        </div>
+      ))}
 
-        {/* Cidades — confirmadas brilham mais */}
-        {CITIES.map((c, i) => (
-          <g key={c.name}>
-            <circle
-              cx={c.cx}
-              cy={c.cy}
-              r={c.confirmed ? "7" : "3.5"}
-              fill="url(#big-pin-glow)"
-              style={{
-                animation: c.confirmed
-                  ? `bigPulse 2.5s ease-in-out ${i * 0.3}s infinite`
-                  : undefined,
-                transformOrigin: `${c.cx}px ${c.cy}px`,
-              }}
-            />
-            <circle
-              cx={c.cx}
-              cy={c.cy}
-              r={c.confirmed ? "1.4" : "0.7"}
-              fill={c.confirmed ? "#67e8f9" : "#ffffff"}
-              fillOpacity={c.confirmed ? "1" : "0.5"}
-            />
-            {c.confirmed && (
-              <text
-                x={c.cx}
-                y={c.cy + 4.2}
-                textAnchor="middle"
-                fontSize="2.4"
-                fontWeight="700"
-                fill="#67e8f9"
-                opacity="0.95"
-              >
-                {c.label}
-              </text>
-            )}
-          </g>
-        ))}
-
-        <text
-          x="50"
-          y="9"
-          textAnchor="middle"
-          fontSize="3.2"
-          fontWeight="700"
-          letterSpacing="2"
-          fill="#67e8f9"
-          fillOpacity="0.55"
-        >
-          BRASIL · 2026
-        </text>
-      </svg>
+      {/* Watermark BRASIL · 2026 */}
+      <div className="pointer-events-none absolute left-1/2 top-2 -translate-x-1/2 text-xs sm:text-sm font-bold uppercase tracking-[0.5em] text-cyan-300/60">
+        Brasil · 2026
+      </div>
 
       <style jsx>{`
         @keyframes bigPulse {
-          0%, 100% { opacity: 0.5; transform: scale(0.8); }
-          50% { opacity: 1; transform: scale(1.4); }
+          0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(0.7); }
+          50% { opacity: 1; transform: translate(-50%, -50%) scale(1.5); }
         }
       `}</style>
     </motion.div>
