@@ -1,20 +1,20 @@
 "use client";
 
 /**
- * Pins de cidades posicionados em % dentro do container.
- * Coordenadas calibradas pra silhueta real do /img/brazil.svg.
+ * Coordenadas calibradas via projeção equirectangular real (lat/long → x/y).
+ * Bounding box do Brasil: 5°N a 33°S (lat), 73°W a 34°W (long).
  */
 const CITIES: { name: string; x: number; y: number; delay: number }[] = [
-  { name: "Manaus", x: 30, y: 30, delay: 0 },
-  { name: "Fortaleza", x: 78, y: 24, delay: 0.3 },
-  { name: "Recife", x: 88, y: 36, delay: 0.6 },
-  { name: "Salvador", x: 82, y: 50, delay: 0.9 },
-  { name: "Brasília", x: 60, y: 56, delay: 1.2 },
-  { name: "BH", x: 67, y: 66, delay: 1.5 },
-  { name: "Rio", x: 72, y: 73, delay: 1.8 },
-  { name: "São Paulo", x: 62, y: 76, delay: 2.1 },
-  { name: "Campo Grande", x: 47, y: 70, delay: 2.4 },
-  { name: "Florianópolis", x: 58, y: 88, delay: 2.7 },
+  { name: "Manaus", x: 33, y: 21, delay: 0 },
+  { name: "Fortaleza", x: 88, y: 23, delay: 0.3 },
+  { name: "Recife", x: 98, y: 34, delay: 0.6 },
+  { name: "Salvador", x: 88, y: 47, delay: 0.9 },
+  { name: "Brasília", x: 64, y: 55, delay: 1.2 },
+  { name: "BH", x: 75, y: 65, delay: 1.5 },
+  { name: "Rio", x: 76, y: 73, delay: 1.8 },
+  { name: "São Paulo", x: 68, y: 75, delay: 2.1 },
+  { name: "Campo Grande", x: 47, y: 67, delay: 2.4 },
+  { name: "Florianópolis", x: 63, y: 86, delay: 2.7 },
 ];
 
 export function BrazilMapBanner() {
