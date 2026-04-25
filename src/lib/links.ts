@@ -57,7 +57,7 @@ export const PRODUCTS: Product[] = [
     eyebrow: "Próximas turmas",
     headline: "Bootcamp · Brasil inteiro",
     ctaLabel: "Quero saber as datas",
-    href: "https://bootcamp.filipeabdalla.com/",
+    href: "https://proximas-turmas.filipeabdalla.com",
     iconName: "calendar",
     customBanner: "brazil-map",
     titleStyle: "bootcamp-brasil",

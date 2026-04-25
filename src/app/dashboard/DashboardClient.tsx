@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Users } from "lucide-react";
 import {
   Bar,
   BarChart,
@@ -93,6 +94,13 @@ export function DashboardClient({
           <p className="mt-1 text-sm text-[#F4F4F4]/60">{periodLabel}</p>
         </div>
         <div className="flex items-center gap-2">
+          <Link
+            href="/dashboard/leads"
+            className="glass flex items-center gap-1.5 rounded-xl px-3 py-2 text-xs font-semibold text-[#03A0CD] transition-colors hover:bg-[#03A0CD]/15"
+          >
+            <Users className="h-3.5 w-3.5" />
+            Leads Bootcamp
+          </Link>
           <PeriodTabs current={period} />
           <form action="/api/auth/logout" method="post">
             <button

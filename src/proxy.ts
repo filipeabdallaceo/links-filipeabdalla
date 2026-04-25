@@ -9,6 +9,7 @@ import { SESSION_COOKIE, expectedToken } from "@/lib/auth";
 const HOST_TO_PATH: Record<string, string> = {
   "mentoria.filipeabdalla.com": "/mentoria-express",
   "aula.filipeabdalla.com": "/aula-bonus",
+  "proximas-turmas.filipeabdalla.com": "/proximas-turmas",
 };
 
 export async function proxy(req: NextRequest) {
