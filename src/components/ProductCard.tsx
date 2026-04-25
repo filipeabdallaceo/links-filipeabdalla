@@ -54,7 +54,7 @@ export function ProductCard({ product, index }: Props) {
       >
         <div
           className={[
-            "relative aspect-[4/5] overflow-hidden rounded-3xl",
+            "relative aspect-[5/4] overflow-hidden rounded-3xl",
             "bg-gradient-to-br",
             product.bannerGradient,
             "ring-1 ring-white/10 transition-all duration-300",
@@ -89,20 +89,20 @@ export function ProductCard({ product, index }: Props) {
             </>
           )}
 
-          <div className="relative z-10 flex h-full flex-col justify-end p-5 sm:p-6">
-            <h3 className="font-display text-lg sm:text-xl font-bold leading-tight tracking-tight text-white drop-shadow-lg">
+          <div className="relative z-10 flex h-full flex-col justify-end p-4 sm:p-5">
+            <h3 className="font-display text-[15px] sm:text-base font-bold leading-tight tracking-tight text-white drop-shadow-lg">
               {product.headline}
             </h3>
           </div>
         </div>
 
-        <div className="mt-3 overflow-hidden rounded-full">
+        <div className="mt-2.5 overflow-hidden rounded-full">
           <div
             className={[
-              "btn-shine relative flex items-center justify-center gap-2 px-5 py-3.5",
+              "btn-shine relative flex items-center justify-center gap-2 px-4 py-3",
               "bg-gradient-to-r",
               product.ctaGradient,
-              "font-display font-semibold text-white text-sm sm:text-[15px]",
+              "font-display font-semibold text-white text-[13px] sm:text-sm",
               "transition-all duration-300",
               "group-hover:brightness-110 group-hover:shadow-[0_10px_30px_-10px_rgba(255,255,255,0.3)]",
             ].join(" ")}
