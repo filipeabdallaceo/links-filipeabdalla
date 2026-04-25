@@ -60,21 +60,25 @@ export function ProductCard({ product, index }: Props) {
             "group-hover:ring-white/30 group-hover:shadow-[0_20px_60px_-20px_rgba(255,255,255,0.15)]",
           ].join(" ")}
         >
-          <div className="absolute inset-0 bg-zinc-950/40" />
-
-          <Icon
-            className="absolute -right-6 -bottom-6 h-44 w-44 sm:h-52 sm:w-52 text-white/10"
-            strokeWidth={1}
-          />
-
-          {product.image && (
-            <Image
-              src={product.image}
-              alt=""
-              fill
-              sizes="(max-width: 640px) 100vw, 33vw"
-              className="object-cover opacity-90"
-            />
+          {product.image ? (
+            <>
+              <Image
+                src={product.image}
+                alt=""
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/95 via-zinc-950/30 to-zinc-950/10" />
+            </>
+          ) : (
+            <>
+              <div className="absolute inset-0 bg-zinc-950/40" />
+              <Icon
+                className="absolute -right-6 -bottom-6 h-44 w-44 sm:h-52 sm:w-52 text-white/10"
+                strokeWidth={1}
+              />
+            </>
           )}
 
           <div className="relative z-10 flex h-full flex-col justify-end p-5 sm:p-6">
