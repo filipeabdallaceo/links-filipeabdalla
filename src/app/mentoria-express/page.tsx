@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import {
   ArrowUpRight,
   Check,
@@ -31,8 +31,8 @@ const trackedHref = (id: string, dest: string) =>
 
 export default function MentoriaExpressPage() {
   return (
-    <div className="relative min-h-dvh bg-[#000330] text-white">
-      <BackgroundGlow />
+    <div className="relative min-h-dvh overflow-hidden bg-[#000330] text-white">
+      <AnimatedBackground />
       <Hero />
       <Problem />
       <Solution />
@@ -50,18 +50,107 @@ export default function MentoriaExpressPage() {
 }
 
 // ───────────────────────────────────────────────────────────────────────────
-// SHARED
+// ANIMATED BACKGROUND
 // ───────────────────────────────────────────────────────────────────────────
 
-function BackgroundGlow() {
+function AnimatedBackground() {
+  const reduced = useReducedMotion();
+
   return (
-    <div aria-hidden className="pointer-events-none fixed inset-0 -z-0">
-      <div className="absolute -top-40 left-1/4 h-96 w-96 rounded-full bg-violet-600/20 blur-[120px]" />
-      <div className="absolute top-1/3 -right-20 h-96 w-96 rounded-full bg-indigo-600/15 blur-[120px]" />
-      <div className="absolute bottom-0 left-0 h-96 w-96 rounded-full bg-purple-600/10 blur-[120px]" />
+    <div
+      aria-hidden
+      className="pointer-events-none fixed inset-0 -z-0 overflow-hidden"
+    >
+      {/* Grid sutil de fundo */}
+      <div
+        className="absolute inset-0 opacity-[0.07]"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, rgba(167, 139, 250, 0.5) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(167, 139, 250, 0.5) 1px, transparent 1px)
+          `,
+          backgroundSize: "70px 70px",
+          maskImage:
+            "radial-gradient(ellipse at center, rgba(0,0,0,0.9) 0%, transparent 75%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse at center, rgba(0,0,0,0.9) 0%, transparent 75%)",
+        }}
+      />
+
+      {/* Aurora orbs flutuantes */}
+      <motion.div
+        className="absolute h-[500px] w-[500px] rounded-full bg-violet-500/25 blur-[140px]"
+        style={{ top: "5%", left: "10%" }}
+        animate={
+          reduced
+            ? undefined
+            : { x: [0, 80, -40, 0], y: [0, 40, 60, 0] }
+        }
+        transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute h-[600px] w-[600px] rounded-full bg-indigo-600/20 blur-[140px]"
+        style={{ top: "35%", right: "5%" }}
+        animate={
+          reduced
+            ? undefined
+            : { x: [0, -60, 40, 0], y: [0, 50, -30, 0] }
+        }
+        transition={{ duration: 28, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute h-[450px] w-[450px] rounded-full bg-purple-600/22 blur-[140px]"
+        style={{ bottom: "10%", left: "30%" }}
+        animate={
+          reduced
+            ? undefined
+            : { x: [0, 40, -50, 0], y: [0, -40, 30, 0] }
+        }
+        transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
+      />
+
+      {/* Linhas horizontais que varrem a tela de cima pra baixo */}
+      {!reduced && <SweepLines />}
     </div>
   );
 }
+
+function SweepLines() {
+  return (
+    <div className="absolute inset-0">
+      {[
+        { color: "rgba(196, 181, 253, 0.6)", duration: 9, delay: 0 },
+        { color: "rgba(165, 180, 252, 0.4)", duration: 12, delay: 3 },
+        { color: "rgba(196, 181, 253, 0.5)", duration: 10, delay: 6.5 },
+      ].map((line, i) => (
+        <motion.div
+          key={i}
+          className="absolute -inset-x-1/4 h-px"
+          style={{
+            background: `linear-gradient(to right, transparent, ${line.color}, transparent)`,
+            top: 0,
+          }}
+          initial={{ y: "-10vh", opacity: 0 }}
+          animate={{
+            y: ["-10vh", "110vh"],
+            opacity: [0, 1, 1, 0],
+          }}
+          transition={{
+            duration: line.duration,
+            delay: line.delay,
+            repeat: Infinity,
+            ease: "linear",
+            times: [0, 0.06, 0.94, 1],
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
+// ───────────────────────────────────────────────────────────────────────────
+// SHARED
+// ───────────────────────────────────────────────────────────────────────────
 
 function Section({
   children,
