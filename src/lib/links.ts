@@ -95,7 +95,7 @@ export const PRODUCTS: Product[] = [
     eyebrow: "Aula ao vivo",
     headline: "Aula Bônus",
     ctaLabel: "Quero participar",
-    href: "https://wa.me/5567992076011?text=Ol%C3%A1%21+Quero+garantir+minha+vaga+na+Aula+B%C3%B4nus.",
+    href: "https://aula.filipeabdalla.com",
     iconName: "gift",
     image: "/img/aula.jpg",
     imagePosition: "object-[50%_25%]",
