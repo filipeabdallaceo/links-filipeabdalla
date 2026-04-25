@@ -353,7 +353,7 @@ function Problem() {
               O atleta com história clínica que não fecha. O exame que você precisa interpretar com confiança e o tempo aperta.
             </p>
             <p>
-              Você abre 7 abas, lê 3 papers, consulta um colega — e ainda fica com aquela dúvida no fundo: <strong className="text-white/90">"será que é isso mesmo?"</strong>
+              Você abre 7 abas, lê 3 papers, consulta um colega - e ainda fica com aquela dúvida no fundo: <strong className="text-white/90">"será que é isso mesmo?"</strong>
             </p>
             <p className="text-white/85">
               Esse é o momento em que você precisa de uma mente sênior pensando junto. Não amanhã. Hoje.
@@ -455,7 +455,7 @@ function Solution() {
       <div className="text-center">
         <Eyebrow>A solução</Eyebrow>
         <h2 className="mx-auto mt-5 max-w-3xl font-display text-2xl font-bold leading-tight sm:text-3xl lg:text-4xl">
-          Acesso direto ao meu raciocínio clínico — em áudio, no seu WhatsApp.
+          Acesso direto ao meu raciocínio clínico - em áudio, no seu WhatsApp.
         </h2>
       </div>
 
@@ -634,7 +634,7 @@ function Comparison() {
 function ValueStack() {
   const items = [
     { label: "3 perguntas em áudio personalizado com Dr. Filipe", value: "R$ 1.497" },
-    { label: "45 dias de validade — usa quando precisar", value: "incluso" },
+    { label: "45 dias de validade - usa quando precisar", value: "incluso" },
     { label: "BÔNUS #1: Análise extra de 1 protocolo seu", value: "R$ 297" },
     { label: "BÔNUS #2: Acesso ao Banco de Casos do Dr. Filipe", value: "R$ 197" },
     { label: "GARANTIA TRIPLA blindada", value: "incluso" },
@@ -791,7 +791,7 @@ function Guarantee() {
               1
             </span>
             <p className="text-sm text-white/80 sm:text-base">
-              <strong className="text-white">Resposta em até 48h</strong> — se eu demorar mais que isso pra responder qualquer pergunta sua, devolvo o valor + R$ 100 de cortesia.
+              <strong className="text-white">Resposta em até 48h</strong> - se eu demorar mais que isso pra responder qualquer pergunta sua, devolvo o valor + R$ 100 de cortesia.
             </p>
           </li>
           <li className="flex gap-3">
@@ -799,7 +799,7 @@ function Guarantee() {
               2
             </span>
             <p className="text-sm text-white/80 sm:text-base">
-              <strong className="text-white">Reembolso integral em 7 dias</strong> — se não usar nenhuma pergunta na primeira semana e mudar de ideia, devolvo 100%.
+              <strong className="text-white">Reembolso integral em 7 dias</strong> - se não usar nenhuma pergunta na primeira semana e mudar de ideia, devolvo 100%.
             </p>
           </li>
           <li className="flex gap-3">
@@ -807,7 +807,7 @@ function Guarantee() {
               3
             </span>
             <p className="text-sm text-white/80 sm:text-base">
-              <strong className="text-white">Confidencialidade total</strong> — seus casos clínicos ficam 100% sigilosos. Nunca uso pra exemplos públicos sem sua autorização explícita.
+              <strong className="text-white">Confidencialidade total</strong> - seus casos clínicos ficam 100% sigilosos. Nunca uso pra exemplos públicos sem sua autorização explícita.
             </p>
           </li>
         </ul>
@@ -832,7 +832,7 @@ function FAQ() {
     },
     {
       q: "Vale pra qualquer área da fisioterapia?",
-      a: "A mentoria é otimizada pra fisio esportiva e ortopédica (minha especialidade). Casos neurológicos, respiratórios ou pediátricos eu posso comentar mas não é meu forte — vou ser honesto se não for minha praia.",
+      a: "A mentoria é otimizada pra fisio esportiva e ortopédica (minha especialidade). Casos neurológicos, respiratórios ou pediátricos eu posso comentar mas não é meu forte - vou ser honesto se não for minha praia.",
     },
     {
       q: "Como funciona a confidencialidade do paciente?",
@@ -927,14 +927,14 @@ function FinalCta() {
 function Footer() {
   return (
     <footer className="relative z-10 border-t border-white/5 px-4 py-8 text-center text-[11px] text-white/40">
-      <p>© {new Date().getFullYear()} Dr. Filipe Abdalla — Fisioterapeuta Esportivo · PhD</p>
+      <p>© {new Date().getFullYear()} Dr. Filipe Abdalla - Fisioterapeuta Esportivo · PhD</p>
       <p className="mt-1">CREFITO · Mentoria Express</p>
     </footer>
   );
 }
 
 // ───────────────────────────────────────────────────────────────────────────
-// STICKY CTA — appears after scrolling past hero
+// STICKY CTA - appears after scrolling past hero
 // ───────────────────────────────────────────────────────────────────────────
 
 function StickyCta() {

@@ -30,7 +30,7 @@ export async function GET(req: NextRequest) {
     null;
   const referrer = req.headers.get("referer");
 
-  // Fire-and-forget — don't make the user wait on the DB before redirecting
+  // Fire-and-forget - don't make the user wait on the DB before redirecting
   const sb = getSupabase();
   if (sb) {
     void sb

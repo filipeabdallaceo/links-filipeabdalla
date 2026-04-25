@@ -3,7 +3,7 @@
 import type { Product } from "@/lib/links";
 
 /**
- * Each card has a unique typographic treatment for its title — emulating
+ * Each card has a unique typographic treatment for its title - emulating
  * the brand-asset-per-product look of bio sites like Rafael Kiso's, but using
  * pure CSS typography (we don't have unique logos per product).
  */
@@ -15,7 +15,7 @@ export function CardTitle({ product }: { product: Product }) {
 type TitleProps = { product: Product };
 
 const TITLE_STYLES: Record<string, (p: TitleProps) => React.ReactElement> = {
-  // ───────── BOOTCAMP ELETROTERAPIA — split com ênfase no "Eletroterapia"
+  // ───────── BOOTCAMP ELETROTERAPIA - split com ênfase no "Eletroterapia"
   "bootcamp-eletro": () => (
     <h3 className="font-display drop-shadow-lg">
       <span className="block text-[9px] sm:text-[10px] font-light tracking-[0.4em] text-orange-200/85 uppercase">
@@ -27,7 +27,7 @@ const TITLE_STYLES: Record<string, (p: TitleProps) => React.ReactElement> = {
     </h3>
   ),
 
-  // ───────── BOOTCAMP BRASIL — palavra "BRASIL" gigante + "inteiro" italic
+  // ───────── BOOTCAMP BRASIL - palavra "BRASIL" gigante + "inteiro" italic
   "bootcamp-brasil": () => (
     <h3 className="font-display drop-shadow-lg">
       <span className="block text-[9px] sm:text-[10px] font-medium tracking-[0.32em] text-cyan-200/80 uppercase">
@@ -44,7 +44,7 @@ const TITLE_STYLES: Record<string, (p: TitleProps) => React.ReactElement> = {
     </h3>
   ),
 
-  // ───────── MENTORIA EXPRESS — "MENTORIA" thin + "EXPRESS" massive bold
+  // ───────── MENTORIA EXPRESS - "MENTORIA" thin + "EXPRESS" massive bold
   "mentoria-express": () => (
     <h3 className="font-display drop-shadow-lg">
       <span className="block text-[9px] sm:text-[10px] font-light tracking-[0.5em] text-violet-200/80 uppercase">
@@ -56,7 +56,7 @@ const TITLE_STYLES: Record<string, (p: TitleProps) => React.ReactElement> = {
     </h3>
   ),
 
-  // ───────── CURSOS ONLINE — "Capacitação" italic flowing + "100% ONLINE" stamp
+  // ───────── CURSOS ONLINE - "Capacitação" italic flowing + "100% ONLINE" stamp
   "cursos-online": () => (
     <h3 className="font-display drop-shadow-lg">
       <span className="block text-[18px] sm:text-2xl font-bold italic leading-none tracking-tight text-white">
@@ -68,7 +68,7 @@ const TITLE_STYLES: Record<string, (p: TitleProps) => React.ReactElement> = {
     </h3>
   ),
 
-  // ───────── AULA BÔNUS — "AULA" stencil + "Bônus" italic com asterisco
+  // ───────── AULA BÔNUS - "AULA" stencil + "Bônus" italic com asterisco
   "aula-bonus": () => (
     <h3 className="font-display drop-shadow-lg">
       <span className="flex items-baseline gap-1.5">
@@ -86,7 +86,7 @@ const TITLE_STYLES: Record<string, (p: TitleProps) => React.ReactElement> = {
     </h3>
   ),
 
-  // ───────── AGENDAR AVALIAÇÃO — "agendar" lowercase thin + "AVALIAÇÃO" massive
+  // ───────── AGENDAR AVALIAÇÃO - "agendar" lowercase thin + "AVALIAÇÃO" massive
   avaliacao: () => (
     <h3 className="font-display drop-shadow-lg">
       <span className="block text-[12px] sm:text-sm font-light italic leading-none text-emerald-100/80 lowercase">
@@ -98,7 +98,7 @@ const TITLE_STYLES: Record<string, (p: TitleProps) => React.ReactElement> = {
     </h3>
   ),
 
-  // ───────── FALAR COM A CLÍNICA — typewriter / chat bubble feel
+  // ───────── FALAR COM A CLÍNICA - typewriter / chat bubble feel
   clinica: () => (
     <h3 className="font-display drop-shadow-lg">
       <span className="block text-[9.5px] sm:text-[11px] font-medium tracking-[0.25em] text-lime-200/75 uppercase">
@@ -113,7 +113,7 @@ const TITLE_STYLES: Record<string, (p: TitleProps) => React.ReactElement> = {
     </h3>
   ),
 
-  // ───────── COMO CHEGAR — coordinates / map vibe
+  // ───────── COMO CHEGAR - coordinates / map vibe
   "como-chegar": () => (
     <h3 className="font-display drop-shadow-lg">
       <span className="block text-[8.5px] sm:text-[10px] font-mono font-medium tracking-[0.3em] text-amber-200/75 uppercase">

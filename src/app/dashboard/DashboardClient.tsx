@@ -296,7 +296,7 @@ export function DashboardClient({
                       <td className="px-2 py-2">{c.link_id}</td>
                       <td className="px-2 py-2 capitalize">{c.device}</td>
                       <td className="px-2 py-2">
-                        {flag(c.country)} {c.country ?? "—"}
+                        {flag(c.country)} {c.country ?? "-"}
                       </td>
                     </tr>
                   ))}

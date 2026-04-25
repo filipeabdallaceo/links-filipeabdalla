@@ -18,7 +18,7 @@ export async function proxy(req: NextRequest) {
   // strip any trailing :port from host header
   const host = (req.headers.get("host") ?? "").split(":")[0];
 
-  // 1) Subdomain landing routing — only rewrites the root path so deep links
+  // 1) Subdomain landing routing - only rewrites the root path so deep links
   //    (and asset/api paths) still work normally on the same domain.
   const targetPath = HOST_TO_PATH[host];
   if (targetPath && (pathname === "/" || pathname === "")) {
@@ -26,7 +26,7 @@ export async function proxy(req: NextRequest) {
     return NextResponse.rewrite(url);
   }
 
-  // 2) Dashboard auth — protect /dashboard, allow /dashboard/login + /api/auth.
+  // 2) Dashboard auth - protect /dashboard, allow /dashboard/login + /api/auth.
   if (pathname.startsWith("/dashboard")) {
     if (pathname === "/dashboard/login") {
       return NextResponse.next();

@@ -25,7 +25,7 @@ export const CIDADES_SUGERIDAS = [
   "Teresina - PI",
 ] as const;
 
-/** Datas confirmadas das próximas turmas — atualizar aqui quando abrir nova. */
+/** Datas confirmadas das próximas turmas - atualizar aqui quando abrir nova. */
 export type ProximaTurma = {
   cidade: string;
   cidadeShort: string;

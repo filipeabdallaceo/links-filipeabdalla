@@ -37,7 +37,7 @@ export default function ProximasTurmasPage() {
 }
 
 // ───────────────────────────────────────────────────────────────────────────
-// BACKGROUND — Brasil + cyan glow + scan lines
+// BACKGROUND - Brasil + cyan glow + scan lines
 // ───────────────────────────────────────────────────────────────────────────
 
 function AnimatedBackground() {
@@ -93,7 +93,7 @@ function AnimatedBackground() {
 }
 
 // ───────────────────────────────────────────────────────────────────────────
-// HERO — mapa Brasil GIGANTE + headline
+// HERO - mapa Brasil GIGANTE + headline
 // ───────────────────────────────────────────────────────────────────────────
 
 function Hero() {
@@ -115,8 +115,10 @@ function Hero() {
         </h1>
 
         <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-white/70 sm:text-lg">
-          4 turmas confirmadas em 2026. Garante a vaga onde já tem data — ou
-          entra na lista de espera da sua cidade.
+          <span className="font-bold bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(251,191,36,0.3)]">
+            4 turmas confirmadas em 2026.
+          </span>{" "}
+          Garante a vaga onde já tem data, ou entra na lista de espera da sua cidade.
         </p>
       </motion.div>
 
@@ -125,20 +127,22 @@ function Hero() {
   );
 }
 
-// Cidades posicionadas em % dentro do container (calibradas pra /img/brazil.svg real)
+// Cidades posicionadas em % dentro do container.
+// Coordenadas calculadas via projeção equirectangular (lat/long → x/y) com base
+// no bounding box real do Brasil: 5°N a 33°S, 73°W a 34°W.
 const CITIES = [
   // Confirmed (das 4 turmas)
-  { name: "Florianópolis", x: 58, y: 88, label: "FLORIPA", confirmed: true },
-  { name: "Campo Grande", x: 47, y: 70, label: "CG", confirmed: true },
-  { name: "Brasília", x: 60, y: 56, label: "BRASÍLIA", confirmed: true },
-  { name: "São Paulo", x: 62, y: 76, label: "SP", confirmed: true },
+  { name: "Florianópolis", x: 63, y: 86, label: "FLORIPA", confirmed: true },
+  { name: "Campo Grande", x: 47, y: 67, label: "CG", confirmed: true },
+  { name: "Brasília", x: 64, y: 55, label: "BRASÍLIA", confirmed: true },
+  { name: "São Paulo", x: 68, y: 75, label: "SP", confirmed: true },
   // Atmosphere (não confirmadas, só visual)
-  { name: "Manaus", x: 30, y: 30, label: "", confirmed: false },
-  { name: "Fortaleza", x: 78, y: 24, label: "", confirmed: false },
-  { name: "Recife", x: 88, y: 36, label: "", confirmed: false },
-  { name: "Salvador", x: 82, y: 50, label: "", confirmed: false },
-  { name: "BH", x: 67, y: 66, label: "", confirmed: false },
-  { name: "Rio", x: 72, y: 73, label: "", confirmed: false },
+  { name: "Manaus", x: 33, y: 21, label: "", confirmed: false },
+  { name: "Fortaleza", x: 88, y: 23, label: "", confirmed: false },
+  { name: "Recife", x: 98, y: 34, label: "", confirmed: false },
+  { name: "Salvador", x: 88, y: 47, label: "", confirmed: false },
+  { name: "BH", x: 75, y: 65, label: "", confirmed: false },
+  { name: "Rio", x: 76, y: 73, label: "", confirmed: false },
 ];
 
 function BigBrazilMap() {
@@ -572,7 +576,7 @@ function CidadeSelect() {
           name="cidadeOutra"
           type="text"
           autoComplete="address-level2"
-          placeholder="Digite sua cidade — ex: Joinville - SC"
+          placeholder="Digite sua cidade - ex: Joinville - SC"
           className={INPUT_CLS}
         />
       )}
@@ -581,7 +585,7 @@ function CidadeSelect() {
 }
 
 // ───────────────────────────────────────────────────────────────────────────
-// BACKUP CTA — Florianópolis (vagas abertas)
+// BACKUP CTA - Florianópolis (vagas abertas)
 // ───────────────────────────────────────────────────────────────────────────
 
 function BackupBootcamp() {
@@ -636,11 +640,11 @@ function FAQ() {
     },
     {
       q: "É presencial mesmo? Não tem versão online?",
-      a: "Bootcamp é só presencial — a prática hands-on é o coração do treinamento. Pra conteúdo online temos a Mentoria Express e a Aula Bônus.",
+      a: "Bootcamp é só presencial - a prática hands-on é o coração do treinamento. Pra conteúdo online temos a Mentoria Express e a Aula Bônus.",
     },
     {
       q: "Quando vai ter na minha cidade se ela não está na lista?",
-      a: "Quando a sua cidade atingir massa crítica de fisios na lista de espera (~30 inscritos), avaliamos abrir turma. Por isso vale cadastrar mesmo se for cidade pequena — você pode acelerar o processo.",
+      a: "Quando a sua cidade atingir massa crítica de fisios na lista de espera (~30 inscritos), avaliamos abrir turma. Por isso vale cadastrar mesmo se for cidade pequena - você pode acelerar o processo.",
     },
     {
       q: "Como funciona a prioridade da lista?",
@@ -715,7 +719,7 @@ function Footer() {
   return (
     <footer className="relative z-10 border-t border-white/5 px-4 py-8 text-center text-[11px] text-white/40">
       <p>
-        © {new Date().getFullYear()} Dr. Filipe Abdalla — Fisioterapeuta
+        © {new Date().getFullYear()} Dr. Filipe Abdalla - Fisioterapeuta
         Esportivo · PhD
       </p>
       <p className="mt-1">CREFITO · Bootcamp Eletroterapia</p>

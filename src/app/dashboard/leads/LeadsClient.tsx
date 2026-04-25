@@ -87,7 +87,7 @@ export function LeadsClient({
 
   return (
     <div className="mt-8 grid gap-5 lg:grid-cols-[280px_1fr]">
-      {/* SIDEBAR — cidades */}
+      {/* SIDEBAR - cidades */}
       <aside className="glass rounded-2xl p-4">
         <h2 className="mb-3 font-display text-sm font-semibold tracking-wide text-[#F4F4F4]">
           Por cidade
@@ -134,7 +134,7 @@ export function LeadsClient({
         )}
       </aside>
 
-      {/* MAIN — tabela */}
+      {/* MAIN - tabela */}
       <section>
         <div className="mb-3 flex flex-wrap items-center gap-2">
           <div className="relative flex-1 min-w-[200px]">

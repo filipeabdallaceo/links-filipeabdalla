@@ -10,7 +10,7 @@ export function Avatar() {
       <div className="relative h-14 w-14 sm:h-28 sm:w-28 rounded-full ring-2 ring-[#03A0CD]/70 ring-offset-2 sm:ring-offset-4 ring-offset-[#000000] overflow-hidden bg-gradient-to-br from-[#02097D] to-[#03A0CD]">
         <Image
           src="/img/filipe.jpg"
-          alt="Dr. Filipe Abdalla — Fisioterapeuta Esportivo"
+          alt="Dr. Filipe Abdalla - Fisioterapeuta Esportivo"
           fill
           sizes="120px"
           className="object-cover"

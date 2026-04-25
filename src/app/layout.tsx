@@ -18,11 +18,11 @@ const nunito = Nunito_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://links.filipeabdalla.com"),
-  title: "Filipe Abdalla — Fisioterapeuta Esportivo",
+  title: "Filipe Abdalla - Fisioterapeuta Esportivo",
   description:
     "Resolvo dores e lesões com tecnologia avançada. Ensino Fisioterapeutas a fazerem o mesmo.",
   openGraph: {
-    title: "Filipe Abdalla — Fisioterapeuta Esportivo",
+    title: "Filipe Abdalla - Fisioterapeuta Esportivo",
     description:
       "Resolvo dores e lesões com tecnologia avançada. Ensino Fisioterapeutas a fazerem o mesmo.",
     url: "https://links.filipeabdalla.com",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Filipe Abdalla — Fisioterapeuta Esportivo",
+    title: "Filipe Abdalla - Fisioterapeuta Esportivo",
     description:
       "Resolvo dores e lesões com tecnologia avançada. Ensino Fisioterapeutas a fazerem o mesmo.",
     images: ["/img/og.jpg"],

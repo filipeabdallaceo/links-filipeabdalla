@@ -10,7 +10,7 @@ export function getSupabase(): SupabaseClient | null {
 
   if (!url || !key) {
     console.warn(
-      "[supabase] env vars não configuradas — tracking desativado. Defina SUPABASE_URL e SUPABASE_SERVICE_ROLE_KEY.",
+      "[supabase] env vars não configuradas - tracking desativado. Defina SUPABASE_URL e SUPABASE_SERVICE_ROLE_KEY.",
     );
     return null;
   }

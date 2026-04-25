@@ -98,8 +98,8 @@ export function summarize(clicks: Click[]) {
   return {
     total,
     todayCount,
-    topLink: top?.label ?? "—",
+    topLink: top?.label ?? "-",
     topLinkClicks: top?.clicks ?? 0,
-    topDevice: dev?.device ?? "—",
+    topDevice: dev?.device ?? "-",
   };
 }

@@ -51,7 +51,7 @@ export default function AulaBonusPage() {
 }
 
 // ───────────────────────────────────────────────────────────────────────────
-// ANIMATED BACKGROUND — partículas subindo (faíscas) + glows rosa/pink
+// ANIMATED BACKGROUND - partículas subindo (faíscas) + glows rosa/pink
 // ───────────────────────────────────────────────────────────────────────────
 
 function AnimatedBackground() {
@@ -230,7 +230,7 @@ function Hero() {
 
         {/* Sub */}
         <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-white/70 sm:text-lg">
-          90 minutos de eletroterapia aplicada — direto ao ponto. Casos clínicos reais, Q&A ao vivo e protocolos que você usa <strong className="text-white/90">no próximo atendimento</strong>.
+          90 minutos de eletroterapia aplicada - direto ao ponto. Casos clínicos reais, Q&A ao vivo e protocolos que você usa <strong className="text-white/90">no próximo atendimento</strong>.
         </p>
 
         {/* Quick info */}
@@ -302,11 +302,11 @@ function Hero() {
 
 function WhatYouLearn() {
   const items = [
-    "Como aplicar eletroterapia com confiança — sem mais 'apertar botão no escuro'",
+    "Como aplicar eletroterapia com confiança - sem mais 'apertar botão no escuro'",
     "Os 5 erros mais comuns que travam seus resultados clínicos",
     "Protocolos práticos pra dores crônicas e lesões esportivas",
     "Casos clínicos reais analisados ao vivo, do início ao plano de tratamento",
-    "Q&A aberto de 30 minutos — pergunte qualquer coisa direto pro Dr. Filipe",
+    "Q&A aberto de 30 minutos - pergunte qualquer coisa direto pro Dr. Filipe",
   ];
 
   return (
@@ -406,7 +406,7 @@ function Badge({ children }: { children: React.ReactNode }) {
 }
 
 // ───────────────────────────────────────────────────────────────────────────
-// INCLUSOS — 3 cards
+// INCLUSOS - 3 cards
 // ───────────────────────────────────────────────────────────────────────────
 
 function Inclusos() {
@@ -421,7 +421,7 @@ function Inclusos() {
       icon: Video,
       title: "Gravação por 30 dias",
       sub: "Acesso vitalício à edição",
-      desc: "Não vai conseguir assistir ao vivo? Sem problema — assista no seu tempo.",
+      desc: "Não vai conseguir assistir ao vivo? Sem problema - assista no seu tempo.",
     },
     {
       icon: FileText,
@@ -580,7 +580,7 @@ function FAQ() {
   const faqs = [
     {
       q: "Quando exatamente é a próxima aula?",
-      a: `A próxima edição rola em ${NEXT_EDITION}. A data exata é votada pela turma — você recebe 3 opções por email e a maioria decide. Se não puder ao vivo, fica a gravação por 30 dias.`,
+      a: `A próxima edição rola em ${NEXT_EDITION}. A data exata é votada pela turma - você recebe 3 opções por email e a maioria decide. Se não puder ao vivo, fica a gravação por 30 dias.`,
     },
     {
       q: "Posso assistir depois se não puder ao vivo?",
@@ -588,7 +588,7 @@ function FAQ() {
     },
     {
       q: "Vai ter mesmo Q&A ao vivo?",
-      a: "Sim. Reservo os últimos 30 minutos pra responder perguntas dos participantes ao vivo. Pode mandar caso clínico, dúvida sobre equipamento, gestão da clínica — o que precisar.",
+      a: "Sim. Reservo os últimos 30 minutos pra responder perguntas dos participantes ao vivo. Pode mandar caso clínico, dúvida sobre equipamento, gestão da clínica - o que precisar.",
     },
     {
       q: "É pra fisio iniciante ou experiente?",
@@ -633,7 +633,7 @@ function FAQ() {
 }
 
 // ───────────────────────────────────────────────────────────────────────────
-// FINAL CTA — com escassez
+// FINAL CTA - com escassez
 // ───────────────────────────────────────────────────────────────────────────
 
 function FinalCta() {
@@ -679,7 +679,7 @@ function FinalCta() {
 function Footer() {
   return (
     <footer className="relative z-10 border-t border-white/5 px-4 py-8 text-center text-[11px] text-white/40">
-      <p>© {new Date().getFullYear()} Dr. Filipe Abdalla — Fisioterapeuta Esportivo · PhD</p>
+      <p>© {new Date().getFullYear()} Dr. Filipe Abdalla - Fisioterapeuta Esportivo · PhD</p>
       <p className="mt-1">CREFITO · Aula Bônus Online</p>
     </footer>
   );

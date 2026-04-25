@@ -30,7 +30,7 @@ export function BrazilMapBanner() {
         }}
       />
 
-      {/* Silhueta real do Brasil via CSS mask — cor do background "atravessa" o shape */}
+      {/* Silhueta real do Brasil via CSS mask - cor do background "atravessa" o shape */}
       <div
         className="absolute inset-0"
         style={{
@@ -47,7 +47,7 @@ export function BrazilMapBanner() {
         }}
       />
 
-      {/* Stroke do Brasil — mesma SVG mas com border via filter trick */}
+      {/* Stroke do Brasil - mesma SVG mas com border via filter trick */}
       <div
         className="absolute inset-0 opacity-50"
         style={{

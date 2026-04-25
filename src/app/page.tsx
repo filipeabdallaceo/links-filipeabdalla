@@ -19,7 +19,7 @@ export default function Home() {
         <div className="relative mt-1.5 sm:mt-5 flex flex-col items-center">
           <Image
             src="/img/logo.png"
-            alt="Filipe Abdalla — Fisioterapeuta Esportivo"
+            alt="Filipe Abdalla - Fisioterapeuta Esportivo"
             width={280}
             height={280}
             priority
