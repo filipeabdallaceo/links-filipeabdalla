@@ -125,16 +125,35 @@ function Hero() {
   );
 }
 
+// Silhueta simplificada do Brasil (viewBox 0 0 100 110)
+const BRAZIL_PATH =
+  "M 50,4 Q 62,2 72,4 Q 82,7 87,13 Q 93,20 96,30 Q 98,38 96,42 L 99,46 Q 95,52 90,52 Q 94,60 87,66 Q 84,73 77,78 Q 80,86 72,92 L 65,99 Q 56,108 48,108 Q 38,104 32,94 Q 26,86 21,78 Q 15,70 10,60 Q 5,48 4,38 Q 6,28 14,20 Q 24,13 35,9 Q 42,6 50,4 Z";
+
+const CITIES = [
+  // Confirmed (das 4 turmas) — coordenadas dentro da silhueta
+  { name: "Florianópolis", cx: 62, cy: 96, label: "FLORIPA", confirmed: true },
+  { name: "Campo Grande", cx: 45, cy: 75, label: "CG", confirmed: true },
+  { name: "Brasília", cx: 60, cy: 58, label: "BRASÍLIA", confirmed: true },
+  { name: "São Paulo", cx: 64, cy: 82, label: "SP", confirmed: true },
+  // Atmosphere (não confirmadas, só visual)
+  { name: "Manaus", cx: 30, cy: 24, label: "", confirmed: false },
+  { name: "Fortaleza", cx: 80, cy: 22, label: "", confirmed: false },
+  { name: "Recife", cx: 88, cy: 36, label: "", confirmed: false },
+  { name: "Salvador", cx: 82, cy: 50, label: "", confirmed: false },
+  { name: "BH", cx: 70, cy: 70, label: "", confirmed: false },
+  { name: "Rio", cx: 75, cy: 80, label: "", confirmed: false },
+];
+
 function BigBrazilMap() {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.8, delay: 0.2 }}
-      className="relative mx-auto mt-10 h-[280px] w-full max-w-[640px] sm:h-[400px]"
+      className="relative mx-auto mt-10 h-[320px] w-full max-w-[560px] sm:h-[460px]"
     >
       <svg
-        viewBox="0 0 100 100"
+        viewBox="0 0 100 110"
         className="absolute inset-0 h-full w-full"
         preserveAspectRatio="xMidYMid meet"
       >
@@ -144,47 +163,44 @@ function BigBrazilMap() {
             <stop offset="40%" stopColor="#22d3ee" stopOpacity="0.4" />
             <stop offset="100%" stopColor="#22d3ee" stopOpacity="0" />
           </radialGradient>
+          <linearGradient id="brazil-big-fill" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#22d3ee" stopOpacity="0.12" />
+            <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.08" />
+          </linearGradient>
           <linearGradient id="route-grad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#67e8f9" stopOpacity="0.5" />
-            <stop offset="100%" stopColor="#818cf8" stopOpacity="0.5" />
+            <stop offset="0%" stopColor="#67e8f9" stopOpacity="0.6" />
+            <stop offset="100%" stopColor="#818cf8" stopOpacity="0.6" />
           </linearGradient>
         </defs>
 
-        {/* Background dots / map paper */}
-        {Array.from({ length: 100 }).map((_, i) => {
-          const x = (i % 10) * 10 + 5;
-          const y = Math.floor(i / 10) * 10 + 5;
-          return (
-            <circle
-              key={i}
-              cx={x}
-              cy={y}
-              r="0.3"
-              fill="#ffffff"
-              fillOpacity="0.08"
-            />
-          );
-        })}
+        {/* Silhueta do Brasil — backdrop */}
+        <path
+          d={BRAZIL_PATH}
+          fill="url(#brazil-big-fill)"
+          stroke="#67e8f9"
+          strokeOpacity="0.55"
+          strokeWidth="0.5"
+        />
 
-        {/* Route lines connecting the 4 confirmed cities (Floripa → CG → Brasília → SP) */}
+        {/* Routes conectando as 4 cidades confirmadas (Floripa → SP → CG → Brasília) */}
         <g
           stroke="url(#route-grad)"
-          strokeWidth="0.4"
+          strokeWidth="0.45"
           strokeDasharray="1.5 1.5"
           fill="none"
         >
-          <line x1="60" y1="96" x2="42" y2="78" />
-          <line x1="42" y1="78" x2="56" y2="62" />
-          <line x1="56" y1="62" x2="60" y2="85" />
+          <line x1="62" y1="96" x2="64" y2="82" />
+          <line x1="64" y1="82" x2="45" y2="75" />
+          <line x1="45" y1="75" x2="60" y2="58" />
         </g>
 
-        {/* All BR major cities — confirmed glow brighter, others dim */}
+        {/* Cidades — confirmadas brilham mais */}
         {CITIES.map((c, i) => (
           <g key={c.name}>
             <circle
               cx={c.cx}
               cy={c.cy}
-              r={c.confirmed ? "8" : "4"}
+              r={c.confirmed ? "7" : "3.5"}
               fill="url(#big-pin-glow)"
               style={{
                 animation: c.confirmed
@@ -196,16 +212,16 @@ function BigBrazilMap() {
             <circle
               cx={c.cx}
               cy={c.cy}
-              r={c.confirmed ? "1.4" : "0.8"}
+              r={c.confirmed ? "1.4" : "0.7"}
               fill={c.confirmed ? "#67e8f9" : "#ffffff"}
               fillOpacity={c.confirmed ? "1" : "0.5"}
             />
             {c.confirmed && (
               <text
                 x={c.cx}
-                y={c.cy + 4.5}
+                y={c.cy + 4.2}
                 textAnchor="middle"
-                fontSize="2.3"
+                fontSize="2.4"
                 fontWeight="700"
                 fill="#67e8f9"
                 opacity="0.95"
@@ -218,13 +234,13 @@ function BigBrazilMap() {
 
         <text
           x="50"
-          y="10"
+          y="9"
           textAnchor="middle"
           fontSize="3.2"
           fontWeight="700"
           letterSpacing="2"
           fill="#67e8f9"
-          fillOpacity="0.5"
+          fillOpacity="0.55"
         >
           BRASIL · 2026
         </text>
@@ -232,35 +248,13 @@ function BigBrazilMap() {
 
       <style jsx>{`
         @keyframes bigPulse {
-          0%,
-          100% {
-            opacity: 0.5;
-            transform: scale(0.8);
-          }
-          50% {
-            opacity: 1;
-            transform: scale(1.4);
-          }
+          0%, 100% { opacity: 0.5; transform: scale(0.8); }
+          50% { opacity: 1; transform: scale(1.4); }
         }
       `}</style>
     </motion.div>
   );
 }
-
-const CITIES = [
-  // Confirmed (das 4 turmas)
-  { name: "Florianópolis", cx: 60, cy: 96, label: "FLORIPA", confirmed: true },
-  { name: "Campo Grande", cx: 42, cy: 78, label: "CG", confirmed: true },
-  { name: "Brasília", cx: 56, cy: 62, label: "BRASÍLIA", confirmed: true },
-  { name: "São Paulo", cx: 60, cy: 85, label: "SP", confirmed: true },
-  // Atmosphere (não confirmadas, só visual)
-  { name: "Manaus", cx: 28, cy: 22, label: "", confirmed: false },
-  { name: "Fortaleza", cx: 78, cy: 28, label: "", confirmed: false },
-  { name: "Recife", cx: 84, cy: 38, label: "", confirmed: false },
-  { name: "Salvador", cx: 80, cy: 50, label: "", confirmed: false },
-  { name: "BH", cx: 64, cy: 70, label: "", confirmed: false },
-  { name: "Rio", cx: 70, cy: 78, label: "", confirmed: false },
-];
 
 // ───────────────────────────────────────────────────────────────────────────
 // DATE CARDS
@@ -652,7 +646,7 @@ function FAQ() {
     },
     {
       q: "Quanto tempo dura?",
-      a: "3 dias presenciais intensivos, com prática supervisionada em pacientes reais.",
+      a: "1 dia presencial · 10 horas de imersão completa em eletrotermofototerapia · das 8h às 20h. Prática supervisionada em pacientes reais.",
     },
     {
       q: "É presencial mesmo? Não tem versão online?",
