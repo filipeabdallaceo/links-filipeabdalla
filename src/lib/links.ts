@@ -8,6 +8,8 @@ export type IconName =
   | "zap"
   | "gift";
 
+export type CustomBanner = "brazil-map";
+
 export type Product = {
   id: string;
   eyebrow: string;
@@ -16,6 +18,8 @@ export type Product = {
   href: string;
   iconName: IconName;
   image?: string;
+  /** Special hand-rendered banner (overrides image). */
+  customBanner?: CustomBanner;
   /** Tailwind gradient classes used on the CTA button. */
   ctaGradient: string;
   /** Gradient backdrop behind the banner image. */
@@ -37,12 +41,13 @@ export const PRODUCTS: Product[] = [
   {
     id: "bootcamp-proximas",
     eyebrow: "Próximas turmas",
-    headline: "Bootcamp · Outras cidades",
+    headline: "Bootcamp · Brasil inteiro",
     ctaLabel: "Quero saber as datas",
     href: "https://bootcamp.filipeabdalla.com/",
     iconName: "calendar",
+    customBanner: "brazil-map",
     ctaGradient: "from-cyan-400 via-blue-500 to-indigo-600",
-    bannerGradient: "from-cyan-400/20 via-blue-500/20 to-indigo-600/20",
+    bannerGradient: "from-cyan-400/30 via-blue-500/30 to-indigo-600/30",
   },
   {
     id: "mentoria-express",
@@ -51,6 +56,7 @@ export const PRODUCTS: Product[] = [
     ctaLabel: "Quero a mentoria",
     href: "https://wa.me/5567992076011?text=Ol%C3%A1%21+Tenho+interesse+na+Mentoria+Express+com+o+Dr.+Filipe+Abdalla.",
     iconName: "zap",
+    image: "/img/mentoria.jpg",
     ctaGradient: "from-violet-500 via-purple-500 to-indigo-600",
     bannerGradient: "from-violet-500/20 via-purple-500/20 to-indigo-600/20",
   },
@@ -61,6 +67,7 @@ export const PRODUCTS: Product[] = [
     ctaLabel: "Quero ver os cursos",
     href: "https://filipeabdalla.com.br/cursos/",
     iconName: "graduation",
+    image: "/img/cursos.jpg",
     ctaGradient: "from-purple-600 via-fuchsia-500 to-pink-500",
     bannerGradient: "from-purple-600/20 via-fuchsia-500/20 to-pink-500/20",
   },
@@ -82,6 +89,7 @@ export const PRODUCTS: Product[] = [
     ctaLabel: "Agendar minha avaliação",
     href: "https://wa.me/5567992076011?text=Ol%C3%A1%21+Gostaria+de+agendar+uma+avalia%C3%A7%C3%A3o+com+o+Dr.+Filipe+Abdalla.",
     iconName: "stethoscope",
+    image: "/img/avaliacao.jpg",
     ctaGradient: "from-emerald-400 via-teal-500 to-cyan-500",
     bannerGradient: "from-emerald-400/20 via-teal-500/20 to-cyan-500/20",
   },

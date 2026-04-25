@@ -15,6 +15,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import type { IconName, Product } from "@/lib/links";
+import { BrazilMapBanner } from "@/components/BrazilMapBanner";
 
 const ICONS: Record<IconName, LucideIcon> = {
   message: MessageCircle,
@@ -60,7 +61,14 @@ export function ProductCard({ product, index }: Props) {
             "group-hover:ring-white/30 group-hover:shadow-[0_20px_60px_-20px_rgba(255,255,255,0.15)]",
           ].join(" ")}
         >
-          {product.image ? (
+          {product.customBanner === "brazil-map" ? (
+            <>
+              <div className="absolute inset-0">
+                <BrazilMapBanner />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/85 via-zinc-950/20 to-transparent" />
+            </>
+          ) : product.image ? (
             <>
               <Image
                 src={product.image}
