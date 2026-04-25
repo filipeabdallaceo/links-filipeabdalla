@@ -69,7 +69,7 @@ export const PRODUCTS: Product[] = [
     eyebrow: "Mentoria 1:1",
     headline: "Mentoria Express",
     ctaLabel: "Quero a mentoria",
-    href: "https://wa.me/5567992076011?text=Ol%C3%A1%21+Tenho+interesse+na+Mentoria+Express+com+o+Dr.+Filipe+Abdalla.",
+    href: "https://mentoria.filipeabdalla.com",
     iconName: "zap",
     image: "/img/mentoria.jpg",
     imagePosition: "object-[50%_30%]",
