@@ -126,22 +126,51 @@ function Hero() {
 }
 
 // Silhueta simplificada do Brasil (viewBox 0 0 100 110)
-const BRAZIL_PATH =
-  "M 50,4 Q 62,2 72,4 Q 82,7 87,13 Q 93,20 96,30 Q 98,38 96,42 L 99,46 Q 95,52 90,52 Q 94,60 87,66 Q 84,73 77,78 Q 80,86 72,92 L 65,99 Q 56,108 48,108 Q 38,104 32,94 Q 26,86 21,78 Q 15,70 10,60 Q 5,48 4,38 Q 6,28 14,20 Q 24,13 35,9 Q 42,6 50,4 Z";
+// Pontos extremos: Roraima/Amapá (norte), Cabo Branco/PB (NE - 99x), Chuí (sul - 109y), Acre (oeste - 0x)
+const BRAZIL_PATH = [
+  "M 35,2",
+  "Q 45,1 55,3",
+  "Q 62,4 65,6",
+  "L 70,3 L 76,5",
+  "Q 79,7 78,12",
+  "L 76,18 L 75,24",
+  "L 78,25",
+  "Q 87,21 93,25",
+  "L 98,30 L 99,35",
+  "Q 96,42 92,48",
+  "L 89,55 L 86,62",
+  "Q 84,68 80,73",
+  "L 76,78",
+  "L 70,82",
+  "L 65,89",
+  "L 62,95",
+  "L 58,103",
+  "L 52,109 L 47,108",
+  "Q 42,103 38,98",
+  "L 33,90",
+  "L 26,82 L 22,75",
+  "L 16,68 L 12,60",
+  "L 8,52 L 5,45",
+  "L 1,40 L 0,36",
+  "Q 3,28 8,22",
+  "L 16,15 L 22,9",
+  "L 28,4",
+  "Z",
+].join(" ");
 
 const CITIES = [
   // Confirmed (das 4 turmas) — coordenadas dentro da silhueta
-  { name: "Florianópolis", cx: 62, cy: 96, label: "FLORIPA", confirmed: true },
-  { name: "Campo Grande", cx: 45, cy: 75, label: "CG", confirmed: true },
-  { name: "Brasília", cx: 60, cy: 58, label: "BRASÍLIA", confirmed: true },
-  { name: "São Paulo", cx: 64, cy: 82, label: "SP", confirmed: true },
+  { name: "Florianópolis", cx: 60, cy: 96, label: "FLORIPA", confirmed: true },
+  { name: "Campo Grande", cx: 42, cy: 76, label: "CG", confirmed: true },
+  { name: "Brasília", cx: 60, cy: 60, label: "BRASÍLIA", confirmed: true },
+  { name: "São Paulo", cx: 65, cy: 82, label: "SP", confirmed: true },
   // Atmosphere (não confirmadas, só visual)
-  { name: "Manaus", cx: 30, cy: 24, label: "", confirmed: false },
-  { name: "Fortaleza", cx: 80, cy: 22, label: "", confirmed: false },
-  { name: "Recife", cx: 88, cy: 36, label: "", confirmed: false },
-  { name: "Salvador", cx: 82, cy: 50, label: "", confirmed: false },
+  { name: "Manaus", cx: 25, cy: 28, label: "", confirmed: false },
+  { name: "Fortaleza", cx: 86, cy: 25, label: "", confirmed: false },
+  { name: "Recife", cx: 95, cy: 36, label: "", confirmed: false },
+  { name: "Salvador", cx: 87, cy: 55, label: "", confirmed: false },
   { name: "BH", cx: 70, cy: 70, label: "", confirmed: false },
-  { name: "Rio", cx: 75, cy: 80, label: "", confirmed: false },
+  { name: "Rio", cx: 75, cy: 78, label: "", confirmed: false },
 ];
 
 function BigBrazilMap() {
@@ -178,8 +207,9 @@ function BigBrazilMap() {
           d={BRAZIL_PATH}
           fill="url(#brazil-big-fill)"
           stroke="#67e8f9"
-          strokeOpacity="0.55"
+          strokeOpacity="0.65"
           strokeWidth="0.5"
+          strokeLinejoin="round"
         />
 
         {/* Routes conectando as 4 cidades confirmadas (Floripa → SP → CG → Brasília) */}
@@ -189,9 +219,9 @@ function BigBrazilMap() {
           strokeDasharray="1.5 1.5"
           fill="none"
         >
-          <line x1="62" y1="96" x2="64" y2="82" />
-          <line x1="64" y1="82" x2="45" y2="75" />
-          <line x1="45" y1="75" x2="60" y2="58" />
+          <line x1="60" y1="96" x2="65" y2="82" />
+          <line x1="65" y1="82" x2="42" y2="76" />
+          <line x1="42" y1="76" x2="60" y2="60" />
         </g>
 
         {/* Cidades — confirmadas brilham mais */}

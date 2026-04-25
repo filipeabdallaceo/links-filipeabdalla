@@ -1,27 +1,88 @@
 "use client";
 
-// Silhueta simplificada do Brasil (viewBox 0 0 100 110)
-// Aproximação reconhecível: protrusão NE de Fortaleza, RS na ponta sul, Acre no oeste
-const BRAZIL_PATH =
-  "M 50,4 Q 62,2 72,4 Q 82,7 87,13 Q 93,20 96,30 Q 98,38 96,42 L 99,46 Q 95,52 90,52 Q 94,60 87,66 Q 84,73 77,78 Q 80,86 72,92 L 65,99 Q 56,108 48,108 Q 38,104 32,94 Q 26,86 21,78 Q 15,70 10,60 Q 5,48 4,38 Q 6,28 14,20 Q 24,13 35,9 Q 42,6 50,4 Z";
+/**
+ * Silhueta simplificada do Brasil (viewBox 0 0 100 110).
+ * Traçada com base nos pontos extremos reais do território:
+ * - NORTE: Roraima/Amapá (y ~ 2-5)
+ * - NE: Cabo Branco/PB - ponto mais oriental (x ~ 99, y ~ 35)
+ * - SUL: Chuí/RS - extremo sul (x ~ 50, y ~ 109)
+ * - OESTE: Serra Contamana/AC - extremo oeste (x ~ 0, y ~ 38)
+ * - Protrusão NE: Maranhão→Piauí→Ceará→RN→PB (bulge à direita)
+ * - Protrusão Amapá: Cabo Orange (NE pequena)
+ * - Triângulo sul: SC + RS afunilando
+ */
+const BRAZIL_PATH = [
+  // Inicia no extremo norte de Roraima
+  "M 35,2",
+  // Topo norte → Pará (curva suave)
+  "Q 45,1 55,3",
+  "Q 62,4 65,6",
+  // Subida pra Amapá / Cabo Orange (pequena protrusão NE no topo)
+  "L 70,3 L 76,5",
+  "Q 79,7 78,12",
+  // Costa do Pará / Maranhão descendo
+  "L 76,18 L 75,24",
+  // Início da protrusão NE — Maranhão / Piauí
+  "L 78,25",
+  // Bulge do Ceará / RN
+  "Q 87,21 93,25",
+  // Cabo Branco (PB) — ponto mais oriental
+  "L 98,30 L 99,35",
+  // Costa leste descendo (Pernambuco → Alagoas → Sergipe)
+  "Q 96,42 92,48",
+  // Bahia (Salvador / Recôncavo)
+  "L 89,55 L 86,62",
+  // Espírito Santo / Vitória
+  "Q 84,68 80,73",
+  // Rio de Janeiro coast
+  "L 76,78",
+  // SP coast
+  "L 70,82",
+  // Paraná / SC coast
+  "L 65,89",
+  // Florianópolis / costa SC
+  "L 62,95",
+  // RS coast
+  "L 58,103",
+  // Chuí - extremo sul
+  "L 52,109 L 47,108",
+  // RS interior subindo
+  "Q 42,103 38,98",
+  // Fronteira PR / SC com Argentina (Foz do Iguaçu)
+  "L 33,90",
+  // MS / fronteira Paraguai
+  "L 26,82 L 22,75",
+  // Mato Grosso / fronteira Bolívia
+  "L 16,68 L 12,60",
+  // Rondônia
+  "L 8,52 L 5,45",
+  // Acre — extremo oeste (Serra Contamana)
+  "L 1,40 L 0,36",
+  // Subida pela Amazonas (oeste)
+  "Q 3,28 8,22",
+  // Roraima oeste
+  "L 16,15 L 22,9",
+  // Volta ao topo (NW de Roraima)
+  "L 28,4",
+  "Z",
+].join(" ");
 
 const CITIES: { name: string; cx: number; cy: number; delay: number }[] = [
-  { name: "Manaus", cx: 30, cy: 24, delay: 0 },
-  { name: "Fortaleza", cx: 80, cy: 22, delay: 0.3 },
-  { name: "Recife", cx: 88, cy: 36, delay: 0.6 },
-  { name: "Salvador", cx: 82, cy: 50, delay: 0.9 },
-  { name: "Brasília", cx: 60, cy: 58, delay: 1.2 },
+  { name: "Manaus", cx: 25, cy: 28, delay: 0 },
+  { name: "Fortaleza", cx: 86, cy: 25, delay: 0.3 },
+  { name: "Recife", cx: 95, cy: 36, delay: 0.6 },
+  { name: "Salvador", cx: 87, cy: 55, delay: 0.9 },
+  { name: "Brasília", cx: 60, cy: 60, delay: 1.2 },
   { name: "BH", cx: 70, cy: 70, delay: 1.5 },
-  { name: "Rio", cx: 75, cy: 80, delay: 1.8 },
-  { name: "São Paulo", cx: 64, cy: 82, delay: 2.1 },
-  { name: "Campo Grande", cx: 45, cy: 75, delay: 2.4 },
-  { name: "Florianópolis", cx: 62, cy: 96, delay: 2.7 },
+  { name: "Rio", cx: 75, cy: 78, delay: 1.8 },
+  { name: "São Paulo", cx: 65, cy: 82, delay: 2.1 },
+  { name: "Campo Grande", cx: 42, cy: 76, delay: 2.4 },
+  { name: "Florianópolis", cx: 60, cy: 96, delay: 2.7 },
 ];
 
 export function BrazilMapBanner() {
   return (
     <div className="relative h-full w-full overflow-hidden">
-      {/* Grid sutil de fundo */}
       <div
         className="absolute inset-0 opacity-25"
         style={{
@@ -48,16 +109,15 @@ export function BrazilMapBanner() {
           </linearGradient>
         </defs>
 
-        {/* Silhueta do Brasil */}
         <path
           d={BRAZIL_PATH}
           fill="url(#brazil-fill)"
           stroke="#ffffff"
-          strokeOpacity="0.45"
-          strokeWidth="0.5"
+          strokeOpacity="0.5"
+          strokeWidth="0.45"
+          strokeLinejoin="round"
         />
 
-        {/* Conexões hub-and-spoke saindo de São Paulo */}
         <g
           stroke="#ffffff"
           strokeOpacity="0.18"
@@ -65,18 +125,17 @@ export function BrazilMapBanner() {
           strokeDasharray="0.8 1.2"
           fill="none"
         >
-          <line x1="64" y1="82" x2="30" y2="24" />
-          <line x1="64" y1="82" x2="80" y2="22" />
-          <line x1="64" y1="82" x2="88" y2="36" />
-          <line x1="64" y1="82" x2="82" y2="50" />
-          <line x1="64" y1="82" x2="60" y2="58" />
-          <line x1="64" y1="82" x2="70" y2="70" />
-          <line x1="64" y1="82" x2="75" y2="80" />
-          <line x1="64" y1="82" x2="45" y2="75" />
-          <line x1="64" y1="82" x2="62" y2="96" />
+          <line x1="65" y1="82" x2="25" y2="28" />
+          <line x1="65" y1="82" x2="86" y2="25" />
+          <line x1="65" y1="82" x2="95" y2="36" />
+          <line x1="65" y1="82" x2="87" y2="55" />
+          <line x1="65" y1="82" x2="60" y2="60" />
+          <line x1="65" y1="82" x2="70" y2="70" />
+          <line x1="65" y1="82" x2="75" y2="78" />
+          <line x1="65" y1="82" x2="42" y2="76" />
+          <line x1="65" y1="82" x2="60" y2="96" />
         </g>
 
-        {/* Pins das cidades pulsando */}
         {CITIES.map((c) => (
           <g key={c.name}>
             <circle
@@ -93,7 +152,6 @@ export function BrazilMapBanner() {
           </g>
         ))}
 
-        {/* Watermark BRASIL */}
         <text
           x="50"
           y="13"
