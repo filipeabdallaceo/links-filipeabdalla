@@ -101,18 +101,18 @@ function PrimaryCta({
   size?: "lg" | "md";
   className?: string;
 }) {
-  const padding = size === "lg" ? "px-6 sm:px-8 py-4" : "px-5 py-3";
-  const text = size === "lg" ? "text-base sm:text-lg" : "text-sm sm:text-base";
+  const padding = size === "lg" ? "px-5 sm:px-8 py-3.5 sm:py-4" : "px-4 sm:px-5 py-2.5 sm:py-3";
+  const text = size === "lg" ? "text-[13.5px] sm:text-lg" : "text-xs sm:text-base";
   return (
     <a
       href={trackedHref(trackId, ASAAS_CHECKOUT)}
       target="_blank"
       rel="noopener noreferrer"
-      className={`group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-violet-500 via-purple-500 to-indigo-600 ${padding} font-display font-bold ${text} text-white shadow-[0_15px_50px_-15px_rgba(139,92,246,0.6)] transition-all hover:shadow-[0_20px_60px_-15px_rgba(139,92,246,0.8)] hover:brightness-110 ${className}`}
+      className={`group relative inline-flex items-center justify-center gap-1.5 sm:gap-2 overflow-hidden whitespace-nowrap rounded-full bg-gradient-to-r from-violet-500 via-purple-500 to-indigo-600 ${padding} font-display font-bold ${text} text-white shadow-[0_15px_50px_-15px_rgba(139,92,246,0.6)] transition-all hover:shadow-[0_20px_60px_-15px_rgba(139,92,246,0.8)] hover:brightness-110 ${className}`}
     >
       <span>{children}</span>
       <ArrowUpRight
-        className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+        className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
         strokeWidth={2.5}
       />
     </a>
@@ -148,11 +148,11 @@ function Hero() {
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
             <PrimaryCta trackId="mentoria-hero-cta">
-              Quero a mentoria — {PRICE}
+              Quero a mentoria · {PRICE}
             </PrimaryCta>
             <a
               href="#como-funciona"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white/80 backdrop-blur transition-all hover:border-white/30 hover:bg-white/10"
+              className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white/80 backdrop-blur transition-all hover:border-white/30 hover:bg-white/10"
             >
               Ver como funciona
             </a>
@@ -785,7 +785,7 @@ function FinalCta() {
         </p>
         <div className="mt-10">
           <PrimaryCta trackId="mentoria-final-cta" size="lg">
-            Quero a Mentoria Express — {PRICE}
+            Quero a Mentoria · {PRICE}
           </PrimaryCta>
         </div>
         <p className="mt-4 text-xs text-white/50">
