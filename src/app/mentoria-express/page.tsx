@@ -109,39 +109,76 @@ function AnimatedBackground() {
         transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      {/* Linhas horizontais que varrem a tela de cima pra baixo */}
-      {!reduced && <SweepLines />}
+      {/* Drop lines posicionadas em X diferentes, cada uma "desce" quando o
+          scroll alcança sua seção da página */}
+      {!reduced && <ScrollDropLines />}
     </div>
   );
 }
 
-function SweepLines() {
-  // Uma única linha vertical que cruza o viewport da esquerda pra direita,
-  // com pausa entre os sweeps (loop total ~16s: 11s sweep + 5s pausa).
+function ScrollDropLines() {
+  const { scrollYProgress } = useScroll();
+
+  // 4 linhas, cada uma em um X diferente, ativas em uma faixa diferente do scroll.
+  // Sequência: esquerda → centro-esquerda → centro → direita
+  const lines = [
+    { left: "10%", range: [0.02, 0.25] as [number, number] },
+    { left: "32%", range: [0.22, 0.48] as [number, number] },
+    { left: "58%", range: [0.45, 0.72] as [number, number] },
+    { left: "85%", range: [0.68, 0.95] as [number, number] },
+  ];
+
   return (
     <div className="absolute inset-0">
-      <motion.div
-        className="absolute -inset-y-[10vh] w-px"
+      {lines.map((line, i) => (
+        <DropLine
+          key={i}
+          left={line.left}
+          scrollYProgress={scrollYProgress}
+          range={line.range}
+        />
+      ))}
+    </div>
+  );
+}
+
+function DropLine({
+  left,
+  scrollYProgress,
+  range,
+}: {
+  left: string;
+  scrollYProgress: ReturnType<typeof useScroll>["scrollYProgress"];
+  range: [number, number];
+}) {
+  // A linha "se desenha" do topo pra baixo conforme o scroll avança na faixa dela
+  const height = useTransform(scrollYProgress, range, ["0vh", "100vh"]);
+  // Fade in/out nas bordas da faixa pra entrar/sair sem corte
+  const opacity = useTransform(
+    scrollYProgress,
+    [range[0] - 0.04, range[0], range[1] - 0.02, range[1] + 0.06],
+    [0, 1, 1, 0],
+  );
+
+  return (
+    <motion.div
+      className="absolute top-0 w-px"
+      style={{ left, height, opacity }}
+    >
+      <div
+        className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(to bottom, transparent, rgba(196, 181, 253, 0.65), transparent)",
-          left: 0,
-          boxShadow: "0 0 12px rgba(196, 181, 253, 0.35)",
-        }}
-        initial={{ x: "-5vw", opacity: 0 }}
-        animate={{
-          x: ["-5vw", "100vw"],
-          opacity: [0, 1, 1, 0],
-        }}
-        transition={{
-          duration: 11,
-          repeat: Infinity,
-          ease: "linear",
-          times: [0, 0.05, 0.95, 1],
-          repeatDelay: 5,
+            "linear-gradient(to bottom, transparent 0%, rgba(196, 181, 253, 0.35) 30%, rgba(196, 181, 253, 0.7) 100%)",
         }}
       />
-    </div>
+      {/* Orb brilhante na ponta inferior (cabeça da descida) */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2">
+        <div className="absolute h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-300/40 blur-lg" />
+        <div className="absolute h-3.5 w-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white blur-[1.5px]" />
+        <div className="absolute h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white" />
+      </div>
+    </motion.div>
   );
 }
 

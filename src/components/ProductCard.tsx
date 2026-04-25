@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import type { IconName, Product } from "@/lib/links";
 import { BrazilMapBanner } from "@/components/BrazilMapBanner";
+import { CardTitle } from "@/components/CardTitle";
 
 const ICONS: Record<IconName, LucideIcon> = {
   message: MessageCircle,
@@ -93,9 +94,7 @@ export function ProductCard({ product, index }: Props) {
           )}
 
           <div className="relative z-10 flex h-full flex-col justify-end p-2.5 sm:p-5">
-            <h3 className="font-display text-[12.5px] sm:text-base font-bold leading-tight tracking-tight text-white drop-shadow-lg">
-              {product.headline}
-            </h3>
+            <CardTitle product={product} />
           </div>
         </div>
 

@@ -26,6 +26,16 @@ export type Product = {
   ctaGradient: string;
   /** Gradient backdrop behind the banner image. */
   bannerGradient: string;
+  /** Typographic style ID for the headline overlay (one of the keys in TITLE_STYLES). */
+  titleStyle?:
+    | "bootcamp-eletro"
+    | "bootcamp-brasil"
+    | "mentoria-express"
+    | "cursos-online"
+    | "aula-bonus"
+    | "avaliacao"
+    | "clinica"
+    | "como-chegar";
 };
 
 export const PRODUCTS: Product[] = [
@@ -38,6 +48,7 @@ export const PRODUCTS: Product[] = [
     iconName: "sparkles",
     image: "/img/bootcamp.jpg",
     imagePosition: "object-[50%_25%]",
+    titleStyle: "bootcamp-eletro",
     ctaGradient: "from-orange-500 via-red-500 to-pink-500",
     bannerGradient: "from-orange-500/20 via-red-500/20 to-pink-500/20",
   },
@@ -49,6 +60,7 @@ export const PRODUCTS: Product[] = [
     href: "https://bootcamp.filipeabdalla.com/",
     iconName: "calendar",
     customBanner: "brazil-map",
+    titleStyle: "bootcamp-brasil",
     ctaGradient: "from-cyan-400 via-blue-500 to-indigo-600",
     bannerGradient: "from-cyan-400/30 via-blue-500/30 to-indigo-600/30",
   },
@@ -61,6 +73,7 @@ export const PRODUCTS: Product[] = [
     iconName: "zap",
     image: "/img/mentoria.jpg",
     imagePosition: "object-[50%_30%]",
+    titleStyle: "mentoria-express",
     ctaGradient: "from-violet-500 via-purple-500 to-indigo-600",
     bannerGradient: "from-violet-500/20 via-purple-500/20 to-indigo-600/20",
   },
@@ -73,6 +86,7 @@ export const PRODUCTS: Product[] = [
     iconName: "graduation",
     image: "/img/cursos.jpg",
     imagePosition: "object-[50%_30%]",
+    titleStyle: "cursos-online",
     ctaGradient: "from-purple-600 via-fuchsia-500 to-pink-500",
     bannerGradient: "from-purple-600/20 via-fuchsia-500/20 to-pink-500/20",
   },
@@ -85,6 +99,7 @@ export const PRODUCTS: Product[] = [
     iconName: "gift",
     image: "/img/aula.jpg",
     imagePosition: "object-[50%_25%]",
+    titleStyle: "aula-bonus",
     ctaGradient: "from-rose-400 via-pink-500 to-fuchsia-600",
     bannerGradient: "from-rose-400/20 via-pink-500/20 to-fuchsia-600/20",
   },
@@ -97,6 +112,7 @@ export const PRODUCTS: Product[] = [
     iconName: "stethoscope",
     image: "/img/avaliacao.jpg",
     imagePosition: "object-[50%_30%]",
+    titleStyle: "avaliacao",
     ctaGradient: "from-emerald-400 via-teal-500 to-cyan-500",
     bannerGradient: "from-emerald-400/20 via-teal-500/20 to-cyan-500/20",
   },
@@ -109,6 +125,7 @@ export const PRODUCTS: Product[] = [
     iconName: "message",
     image: "/img/filipe.jpg",
     imagePosition: "object-[50%_25%]",
+    titleStyle: "clinica",
     ctaGradient: "from-lime-400 via-green-500 to-emerald-600",
     bannerGradient: "from-lime-400/20 via-green-500/20 to-emerald-600/20",
   },
@@ -120,6 +137,7 @@ export const PRODUCTS: Product[] = [
     href: "https://www.google.com/maps/dir/?api=1&destination=Rua+Dr.+Michel+Scaff%2C+93%2C+Ch%C3%A1cara+Cachoeira%2C+Campo+Grande+-+MS%2C+79040-860",
     iconName: "map",
     image: "/img/clinica.jpg",
+    titleStyle: "como-chegar",
     ctaGradient: "from-amber-400 via-orange-500 to-red-500",
     bannerGradient: "from-amber-400/20 via-orange-500/20 to-red-500/20",
   },
