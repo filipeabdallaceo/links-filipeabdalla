@@ -3,7 +3,7 @@
 :root {
   --color-marinho: #02097d;
   --color-turquesa: #03a0cd;
-  --color-noite: #000330;
+  --color-noite: #000000;
   --color-claro: #f4f4f4;
   color-scheme: dark;
 }
@@ -18,21 +18,16 @@
 }
 
 html {
-  background-color: #000330;
+  background-color: #000000;
 }
 
 body {
-  background-color: #000330;
+  background-color: #000000;
   color: #f4f4f4;
   font-family: var(--font-nunito), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   min-height: 100dvh;
-  background-image:
-    radial-gradient(circle at 20% 0%, rgba(3, 160, 205, 0.18) 0%, transparent 45%),
-    radial-gradient(circle at 80% 100%, rgba(2, 9, 125, 0.55) 0%, transparent 50%),
-    linear-gradient(180deg, #000330 0%, #000208 100%);
-  background-attachment: fixed;
 }
 
 @keyframes shine {
@@ -47,40 +42,19 @@ body {
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(255, 255, 255, 0.18) 50%,
+    rgba(255, 255, 255, 0.25) 50%,
     transparent 100%
   );
   transform: translateX(-120%) skewX(-20deg);
   pointer-events: none;
 }
 
-.btn-shine:hover::before {
+.btn-shine:hover::before,
+.group:hover .btn-shine::before {
   animation: shine 0.9s ease-out;
 }
 
-.glass {
-  background-color: rgba(244, 244, 244, 0.06);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(3, 160, 205, 0.25);
-}
-
-.glass:hover {
-  background-color: rgba(3, 160, 205, 0.12);
-  border-color: rgba(3, 160, 205, 0.55);
-}
-
-.glass-cta {
-  background-image: linear-gradient(135deg, #02097d 0%, #03a0cd 100%);
-  border: 1px solid rgba(3, 160, 205, 0.6);
-  box-shadow: 0 8px 32px -8px rgba(3, 160, 205, 0.5);
-}
-
-.glass-cta:hover {
-  box-shadow: 0 12px 40px -6px rgba(3, 160, 205, 0.75);
-}
-
 ::selection {
-  background-color: rgba(3, 160, 205, 0.4);
+  background-color: rgba(255, 255, 255, 0.25);
   color: #ffffff;
 }

@@ -4,106 +4,104 @@ export type IconName =
   | "calendar"
   | "sparkles"
   | "graduation"
-  | "stethoscope";
+  | "stethoscope"
+  | "zap"
+  | "gift";
 
 export type Product = {
   id: string;
-  size: "hero" | "large" | "small";
   eyebrow: string;
   headline: string;
-  description: string;
-  bullets?: string[];
   ctaLabel: string;
   href: string;
   iconName: IconName;
   image?: string;
-  highlight?: boolean;
+  /** Tailwind gradient classes used on the CTA button. */
+  ctaGradient: string;
+  /** Gradient backdrop behind the banner image. */
+  bannerGradient: string;
 };
 
 export const PRODUCTS: Product[] = [
   {
     id: "bootcamp-atual",
-    size: "hero",
-    eyebrow: "🔥 TURMA ATUAL · PRESENCIAL",
-    headline: "Bootcamp Eletroterapia · Florianópolis",
-    description:
-      "3 dias intensivos pra você dominar eletroterapia com evidência, segurança e prática hands-on. Pare de apertar botão.",
-    bullets: [
-      "Metodologia PULSE — passo a passo replicável na clínica",
-      "Prática supervisionada em pacientes reais",
-      "Certificação + comunidade vitalícia",
-    ],
+    eyebrow: "Bootcamp Florianópolis",
+    headline: "Bootcamp Eletroterapia",
     ctaLabel: "Quero garantir minha vaga",
     href: "https://bootcamp.filipeabdalla.com/",
     iconName: "sparkles",
-    highlight: true,
+    ctaGradient: "from-orange-500 via-red-500 to-pink-500",
+    bannerGradient: "from-orange-500/20 via-red-500/20 to-pink-500/20",
   },
   {
     id: "bootcamp-proximas",
-    size: "large",
-    eyebrow: "🗓️ PRÓXIMAS DATAS",
-    headline: "Bootcamp em outras cidades",
-    description:
-      "Não consegue ir agora a Florianópolis? Veja as próximas turmas e entre na lista de espera da sua cidade.",
-    bullets: [
-      "Datas e cidades confirmadas",
-      "Lista de espera prioritária",
-    ],
-    ctaLabel: "Ver próximas datas",
+    eyebrow: "Próximas turmas",
+    headline: "Bootcamp · Outras cidades",
+    ctaLabel: "Quero saber as datas",
     href: "https://bootcamp.filipeabdalla.com/",
     iconName: "calendar",
+    ctaGradient: "from-cyan-400 via-blue-500 to-indigo-600",
+    bannerGradient: "from-cyan-400/20 via-blue-500/20 to-indigo-600/20",
+  },
+  {
+    id: "mentoria-express",
+    eyebrow: "Mentoria 1:1",
+    headline: "Mentoria Express",
+    ctaLabel: "Quero a mentoria",
+    href: "https://wa.me/5567992076011?text=Ol%C3%A1%21+Tenho+interesse+na+Mentoria+Express+com+o+Dr.+Filipe+Abdalla.",
+    iconName: "zap",
+    ctaGradient: "from-violet-500 via-purple-500 to-indigo-600",
+    bannerGradient: "from-violet-500/20 via-purple-500/20 to-indigo-600/20",
   },
   {
     id: "cursos-online",
-    size: "large",
-    eyebrow: "💻 100% ONLINE",
-    headline: "Cursos Online",
-    description:
-      "Capacitação a distância pra fisioterapeutas que querem se especializar com a metodologia que já formou centenas de profissionais.",
-    bullets: [
-      "Acesso vitalício às aulas",
-      "Conteúdo prático aplicável amanhã",
-    ],
-    ctaLabel: "Ver todos os cursos",
+    eyebrow: "Curso Online",
+    headline: "Capacitação a distância",
+    ctaLabel: "Quero ver os cursos",
     href: "https://filipeabdalla.com.br/cursos/",
     iconName: "graduation",
+    ctaGradient: "from-purple-600 via-fuchsia-500 to-pink-500",
+    bannerGradient: "from-purple-600/20 via-fuchsia-500/20 to-pink-500/20",
+  },
+  {
+    id: "aula-bonus",
+    eyebrow: "Conteúdo grátis",
+    headline: "Aula Bônus",
+    ctaLabel: "Quero assistir",
+    href: "https://wa.me/5567992076011?text=Ol%C3%A1%21+Quero+garantir+minha+vaga+na+Aula+B%C3%B4nus.",
+    iconName: "gift",
+    ctaGradient: "from-rose-400 via-pink-500 to-fuchsia-600",
+    bannerGradient: "from-rose-400/20 via-pink-500/20 to-fuchsia-600/20",
   },
   {
     id: "agendar-avaliacao",
-    size: "large",
-    eyebrow: "🩺 PARA PACIENTES",
-    headline: "Agendar avaliação com Dr. Filipe Abdalla",
-    description:
-      "Avaliação completa e plano de tratamento individualizado pra atletas, esportistas e quem busca recuperação de alta performance.",
-    bullets: [
-      "Atendimento com fisioterapeuta esportivo PhD",
-      "Diagnóstico funcional + plano personalizado",
-      "Agendamento direto pelo WhatsApp",
-    ],
+    eyebrow: "Para Pacientes",
+    headline: "Agendar avaliação",
     ctaLabel: "Agendar minha avaliação",
     href: "https://wa.me/5567992076011?text=Ol%C3%A1%21+Gostaria+de+agendar+uma+avalia%C3%A7%C3%A3o+com+o+Dr.+Filipe+Abdalla.",
     iconName: "stethoscope",
+    ctaGradient: "from-emerald-400 via-teal-500 to-cyan-500",
+    bannerGradient: "from-emerald-400/20 via-teal-500/20 to-cyan-500/20",
   },
   {
     id: "whatsapp-clinica",
-    size: "small",
-    eyebrow: "💬 OUTRAS DÚVIDAS",
+    eyebrow: "Outras dúvidas",
     headline: "Falar com a clínica",
-    description:
-      "Dúvidas gerais, parcerias e informações administrativas.",
     ctaLabel: "Chamar no WhatsApp",
     href: "https://wa.me/5567992076011",
     iconName: "message",
+    ctaGradient: "from-lime-400 via-green-500 to-emerald-600",
+    bannerGradient: "from-lime-400/20 via-green-500/20 to-emerald-600/20",
   },
   {
     id: "como-chegar",
-    size: "small",
-    eyebrow: "📍 LOCALIZAÇÃO",
-    headline: "Como chegar à clínica",
-    description: "R. Dr. Michel Scaff, 93 · Chácara Cachoeira · Campo Grande/MS",
+    eyebrow: "Localização",
+    headline: "Como chegar",
     ctaLabel: "Abrir rota no Maps",
     href: "https://www.google.com/maps/dir/?api=1&destination=Rua+Dr.+Michel+Scaff%2C+93%2C+Ch%C3%A1cara+Cachoeira%2C+Campo+Grande+-+MS%2C+79040-860",
     iconName: "map",
+    ctaGradient: "from-amber-400 via-orange-500 to-red-500",
+    bannerGradient: "from-amber-400/20 via-orange-500/20 to-red-500/20",
   },
 ];
 
@@ -111,10 +109,9 @@ export function getLinkById(id: string): Product | undefined {
   return PRODUCTS.find((l) => l.id === id);
 }
 
-// Backward-compat alias for the dashboard analytics
 export const LINKS = PRODUCTS.map((p) => ({
   id: p.id,
   label: p.headline,
-  description: p.description,
+  description: p.eyebrow,
   href: p.href,
 }));
