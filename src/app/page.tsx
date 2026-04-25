@@ -31,7 +31,10 @@ export default function Home() {
         </div>
 
         <p className="mt-1.5 sm:mt-4 max-w-[260px] sm:max-w-[340px] text-[10.5px] sm:text-sm leading-snug sm:leading-relaxed text-white/75">
-          Resolvo dores e lesões com tecnologia avançada.
+          <span className="font-bold bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 bg-clip-text text-transparent drop-shadow-[0_0_8px_rgba(251,191,36,0.25)]">
+            Resolvo dores e lesões
+          </span>{" "}
+          com tecnologia avançada.
           <br />
           <span className="text-white/55">
             Ensino Fisioterapeutas a fazerem o mesmo.
