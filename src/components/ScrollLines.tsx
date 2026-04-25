@@ -13,36 +13,42 @@ export function ScrollLines({ sectionRef }: Props) {
     offset: ["start end", "end start"],
   });
 
-  // Line height grows with scroll position through the section.
   const height = useTransform(scrollYProgress, [0, 0.85], ["0%", "100%"]);
 
   return (
     <div
       aria-hidden
-      className="pointer-events-none absolute inset-0 hidden lg:block"
+      className="pointer-events-none absolute inset-0 overflow-hidden"
     >
-      <Line height={height} leftClass="left-1/3" />
-      <Line height={height} leftClass="left-2/3" />
+      {/* Mobile (1 col): linha central única */}
+      <div className="lg:hidden">
+        <Line height={height} positionClass="left-1/2" />
+      </div>
+
+      {/* Desktop (3 cols): 2 linhas entre as colunas */}
+      <div className="hidden lg:block">
+        <Line height={height} positionClass="left-1/3" />
+        <Line height={height} positionClass="left-2/3" />
+      </div>
     </div>
   );
 }
 
 function Line({
   height,
-  leftClass,
+  positionClass,
 }: {
   height: ReturnType<typeof useTransform<number, string>>;
-  leftClass: string;
+  positionClass: string;
 }) {
   return (
     <motion.div
       style={{ height }}
-      className={`absolute top-0 ${leftClass} w-px -translate-x-1/2 overflow-visible`}
+      className={`absolute top-0 ${positionClass} w-px -translate-x-1/2 overflow-visible`}
     >
-      {/* The line itself — solid trail */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/35 to-white/70" />
 
-      {/* Glowing head at the leading edge */}
+      {/* Orb na ponta inferior */}
       <div className="absolute -bottom-3 left-1/2 -translate-x-1/2">
         <div className="absolute h-6 w-6 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/40 blur-md" />
         <div className="absolute h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white blur-[1px]" />

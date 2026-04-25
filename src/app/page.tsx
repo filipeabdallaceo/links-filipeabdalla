@@ -45,7 +45,7 @@ export default function Home() {
       <section
         ref={sectionRef}
         aria-label="Produtos e atendimento"
-        className="relative mt-3 sm:mt-10 grid w-full grid-cols-1 gap-x-4 gap-y-2.5 sm:grid-cols-2 lg:grid-cols-3 sm:gap-x-5 sm:gap-y-8"
+        className="relative mt-3 sm:mt-10 grid w-full grid-cols-1 gap-x-4 gap-y-5 sm:grid-cols-2 lg:grid-cols-3 sm:gap-x-5 sm:gap-y-8"
       >
         <ScrollLines sectionRef={sectionRef} />
         {PRODUCTS.map((product, i) => (

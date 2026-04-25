@@ -98,13 +98,13 @@ export function ProductCard({ product, index }: Props) {
           </div>
         </div>
 
-        <div className="mt-1.5 sm:mt-2 overflow-hidden rounded-full">
+        <div className="mt-2 sm:mt-2.5 overflow-hidden rounded-full">
           <div
             className={[
-              "btn-shine relative flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 sm:py-3",
+              "btn-shine relative flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-3.5 sm:py-4",
               "bg-gradient-to-r",
               product.ctaGradient,
-              "font-display font-semibold text-white text-[11.5px] sm:text-sm",
+              "font-display font-semibold text-white text-[12.5px] sm:text-[15px]",
               "transition-all duration-300",
               "group-hover:brightness-110 group-hover:shadow-[0_10px_30px_-10px_rgba(255,255,255,0.3)]",
             ].join(" ")}
