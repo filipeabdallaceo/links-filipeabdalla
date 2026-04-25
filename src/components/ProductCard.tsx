@@ -75,7 +75,10 @@ export function ProductCard({ product, index }: Props) {
                 alt=""
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                className={[
+                  "object-cover transition-transform duration-700 group-hover:scale-105",
+                  product.imagePosition ?? "object-center",
+                ].join(" ")}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/95 via-zinc-950/30 to-zinc-950/10" />
             </>

@@ -18,6 +18,8 @@ export type Product = {
   href: string;
   iconName: IconName;
   image?: string;
+  /** Tailwind object-position class. Use to keep faces in frame on landscape crops. */
+  imagePosition?: string;
   /** Special hand-rendered banner (overrides image). */
   customBanner?: CustomBanner;
   /** Tailwind gradient classes used on the CTA button. */
@@ -35,6 +37,7 @@ export const PRODUCTS: Product[] = [
     href: "https://bootcamp.filipeabdalla.com/",
     iconName: "sparkles",
     image: "/img/bootcamp.jpg",
+    imagePosition: "object-[50%_25%]",
     ctaGradient: "from-orange-500 via-red-500 to-pink-500",
     bannerGradient: "from-orange-500/20 via-red-500/20 to-pink-500/20",
   },
@@ -57,6 +60,7 @@ export const PRODUCTS: Product[] = [
     href: "https://wa.me/5567992076011?text=Ol%C3%A1%21+Tenho+interesse+na+Mentoria+Express+com+o+Dr.+Filipe+Abdalla.",
     iconName: "zap",
     image: "/img/mentoria.jpg",
+    imagePosition: "object-[50%_30%]",
     ctaGradient: "from-violet-500 via-purple-500 to-indigo-600",
     bannerGradient: "from-violet-500/20 via-purple-500/20 to-indigo-600/20",
   },
@@ -68,6 +72,7 @@ export const PRODUCTS: Product[] = [
     href: "https://filipeabdalla.com.br/cursos/",
     iconName: "graduation",
     image: "/img/cursos.jpg",
+    imagePosition: "object-[50%_30%]",
     ctaGradient: "from-purple-600 via-fuchsia-500 to-pink-500",
     bannerGradient: "from-purple-600/20 via-fuchsia-500/20 to-pink-500/20",
   },
@@ -79,6 +84,7 @@ export const PRODUCTS: Product[] = [
     href: "https://wa.me/5567992076011?text=Ol%C3%A1%21+Quero+garantir+minha+vaga+na+Aula+B%C3%B4nus.",
     iconName: "gift",
     image: "/img/aula.jpg",
+    imagePosition: "object-[50%_25%]",
     ctaGradient: "from-rose-400 via-pink-500 to-fuchsia-600",
     bannerGradient: "from-rose-400/20 via-pink-500/20 to-fuchsia-600/20",
   },
@@ -90,6 +96,7 @@ export const PRODUCTS: Product[] = [
     href: "https://wa.me/5567992076011?text=Ol%C3%A1%21+Gostaria+de+agendar+uma+avalia%C3%A7%C3%A3o+com+o+Dr.+Filipe+Abdalla.",
     iconName: "stethoscope",
     image: "/img/avaliacao.jpg",
+    imagePosition: "object-[50%_30%]",
     ctaGradient: "from-emerald-400 via-teal-500 to-cyan-500",
     bannerGradient: "from-emerald-400/20 via-teal-500/20 to-cyan-500/20",
   },
@@ -101,6 +108,7 @@ export const PRODUCTS: Product[] = [
     href: "https://wa.me/5567992076011",
     iconName: "message",
     image: "/img/filipe.jpg",
+    imagePosition: "object-[50%_25%]",
     ctaGradient: "from-lime-400 via-green-500 to-emerald-600",
     bannerGradient: "from-lime-400/20 via-green-500/20 to-emerald-600/20",
   },
