@@ -12,25 +12,25 @@ export default function Home() {
   const sectionRef = useRef<HTMLElement>(null);
 
   return (
-    <main className="mx-auto flex min-h-dvh w-full max-w-6xl flex-col px-4 py-5 sm:px-6 sm:py-12">
+    <main className="mx-auto flex min-h-dvh w-full max-w-6xl flex-col px-4 py-4 sm:px-6 sm:py-12">
       <header className="flex flex-col items-center text-center">
         <Avatar />
 
-        <div className="relative mt-3 sm:mt-5 flex flex-col items-center">
+        <div className="relative mt-2 sm:mt-5 flex flex-col items-center">
           <Image
             src="/img/logo.png"
             alt="Filipe Abdalla — Fisioterapeuta Esportivo"
             width={280}
             height={280}
             priority
-            className="h-auto w-32 sm:w-52"
+            className="h-auto w-24 sm:w-52"
           />
-          <span className="-mt-0.5 sm:-mt-1 inline-flex items-center gap-1 rounded-full border border-white/15 bg-white/5 px-2 py-0.5 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.18em] text-white/80 backdrop-blur">
+          <span className="-mt-0.5 sm:-mt-1 inline-flex items-center gap-1 rounded-full border border-white/15 bg-white/5 px-1.5 py-px sm:px-2 sm:py-0.5 text-[8px] sm:text-[10px] font-bold uppercase tracking-[0.18em] text-white/80 backdrop-blur">
             PhD
           </span>
         </div>
 
-        <p className="mt-2.5 sm:mt-4 max-w-[280px] text-[12px] sm:text-sm leading-snug sm:leading-relaxed text-white/65">
+        <p className="mt-2 sm:mt-4 max-w-[260px] sm:max-w-[280px] text-[11px] sm:text-sm leading-snug sm:leading-relaxed text-white/65">
           Qualificando profissionais com qualidade e excelência.
         </p>
       </header>
@@ -38,7 +38,7 @@ export default function Home() {
       <section
         ref={sectionRef}
         aria-label="Produtos e atendimento"
-        className="relative mt-6 sm:mt-10 grid w-full grid-cols-1 gap-x-4 gap-y-5 sm:grid-cols-2 lg:grid-cols-3 sm:gap-x-5 sm:gap-y-8"
+        className="relative mt-4 sm:mt-10 grid w-full grid-cols-1 gap-x-4 gap-y-3.5 sm:grid-cols-2 lg:grid-cols-3 sm:gap-x-5 sm:gap-y-8"
       >
         <ScrollLines sectionRef={sectionRef} />
         {PRODUCTS.map((product, i) => (
@@ -46,11 +46,11 @@ export default function Home() {
         ))}
       </section>
 
-      <div className="mt-10">
+      <div className="mt-8 sm:mt-12">
         <SocialIcons />
       </div>
 
-      <footer className="mt-auto pt-10 pb-2 text-center text-[10px] sm:text-[11px] text-white/35">
+      <footer className="mt-auto pt-8 pb-2 text-center text-[10px] sm:text-[11px] text-white/35">
         <p>© {new Date().getFullYear()} Dr. Filipe Abdalla</p>
         <p className="mt-1">CREFITO · Fisioterapia Esportiva</p>
       </footer>

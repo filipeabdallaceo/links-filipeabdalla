@@ -41,8 +41,8 @@ export function ProductCard({ product, index }: Props) {
       whileHover={{ y: -3 }}
       className="group relative flex flex-col gap-3 rounded-3xl"
     >
-      <span className="inline-flex w-fit items-center gap-1.5 rounded-full border border-white/10 bg-zinc-900/80 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-white backdrop-blur">
-        <ArrowUpRight className="h-3 w-3" strokeWidth={2.5} />
+      <span className="inline-flex w-fit items-center gap-1 sm:gap-1.5 rounded-full border border-white/10 bg-zinc-900/80 px-2.5 py-1 sm:px-3 sm:py-1.5 text-[9.5px] sm:text-[11px] font-semibold uppercase tracking-wider text-white backdrop-blur">
+        <ArrowUpRight className="h-2.5 w-2.5 sm:h-3 sm:w-3" strokeWidth={2.5} />
         {product.eyebrow}
       </span>
 
@@ -54,7 +54,7 @@ export function ProductCard({ product, index }: Props) {
       >
         <div
           className={[
-            "relative aspect-[5/4] overflow-hidden rounded-3xl",
+            "relative aspect-[16/10] sm:aspect-[5/4] overflow-hidden rounded-3xl",
             "bg-gradient-to-br",
             product.bannerGradient,
             "ring-1 ring-white/10 transition-all duration-300",
@@ -92,20 +92,20 @@ export function ProductCard({ product, index }: Props) {
             </>
           )}
 
-          <div className="relative z-10 flex h-full flex-col justify-end p-4 sm:p-5">
-            <h3 className="font-display text-[15px] sm:text-base font-bold leading-tight tracking-tight text-white drop-shadow-lg">
+          <div className="relative z-10 flex h-full flex-col justify-end p-3 sm:p-5">
+            <h3 className="font-display text-[14px] sm:text-base font-bold leading-tight tracking-tight text-white drop-shadow-lg">
               {product.headline}
             </h3>
           </div>
         </div>
 
-        <div className="mt-2.5 overflow-hidden rounded-full">
+        <div className="mt-2 overflow-hidden rounded-full">
           <div
             className={[
-              "btn-shine relative flex items-center justify-center gap-2 px-4 py-3",
+              "btn-shine relative flex items-center justify-center gap-2 px-4 py-2.5 sm:py-3",
               "bg-gradient-to-r",
               product.ctaGradient,
-              "font-display font-semibold text-white text-[13px] sm:text-sm",
+              "font-display font-semibold text-white text-[12.5px] sm:text-sm",
               "transition-all duration-300",
               "group-hover:brightness-110 group-hover:shadow-[0_10px_30px_-10px_rgba(255,255,255,0.3)]",
             ].join(" ")}
