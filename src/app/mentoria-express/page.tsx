@@ -116,34 +116,31 @@ function AnimatedBackground() {
 }
 
 function SweepLines() {
+  // Uma única linha vertical que cruza o viewport da esquerda pra direita,
+  // com pausa entre os sweeps (loop total ~16s: 11s sweep + 5s pausa).
   return (
     <div className="absolute inset-0">
-      {[
-        { color: "rgba(196, 181, 253, 0.6)", duration: 9, delay: 0 },
-        { color: "rgba(165, 180, 252, 0.4)", duration: 12, delay: 3 },
-        { color: "rgba(196, 181, 253, 0.5)", duration: 10, delay: 6.5 },
-      ].map((line, i) => (
-        <motion.div
-          key={i}
-          className="absolute -inset-x-1/4 h-px"
-          style={{
-            background: `linear-gradient(to right, transparent, ${line.color}, transparent)`,
-            top: 0,
-          }}
-          initial={{ y: "-10vh", opacity: 0 }}
-          animate={{
-            y: ["-10vh", "110vh"],
-            opacity: [0, 1, 1, 0],
-          }}
-          transition={{
-            duration: line.duration,
-            delay: line.delay,
-            repeat: Infinity,
-            ease: "linear",
-            times: [0, 0.06, 0.94, 1],
-          }}
-        />
-      ))}
+      <motion.div
+        className="absolute -inset-y-[10vh] w-px"
+        style={{
+          background:
+            "linear-gradient(to bottom, transparent, rgba(196, 181, 253, 0.65), transparent)",
+          left: 0,
+          boxShadow: "0 0 12px rgba(196, 181, 253, 0.35)",
+        }}
+        initial={{ x: "-5vw", opacity: 0 }}
+        animate={{
+          x: ["-5vw", "100vw"],
+          opacity: [0, 1, 1, 0],
+        }}
+        transition={{
+          duration: 11,
+          repeat: Infinity,
+          ease: "linear",
+          times: [0, 0.05, 0.95, 1],
+          repeatDelay: 5,
+        }}
+      />
     </div>
   );
 }
