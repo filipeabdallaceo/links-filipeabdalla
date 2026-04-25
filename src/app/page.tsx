@@ -30,8 +30,12 @@ export default function Home() {
           </span>
         </div>
 
-        <p className="mt-1.5 sm:mt-4 max-w-[240px] sm:max-w-[280px] text-[10px] sm:text-sm leading-snug sm:leading-relaxed text-white/65">
-          Qualificando profissionais com qualidade e excelência.
+        <p className="mt-1.5 sm:mt-4 max-w-[260px] sm:max-w-[340px] text-[10.5px] sm:text-sm leading-snug sm:leading-relaxed text-white/75">
+          Resolvo dores e lesões com tecnologia avançada.
+          <br />
+          <span className="text-white/55">
+            Ensino Fisioterapeutas a fazerem o mesmo.
+          </span>
         </p>
       </header>
 

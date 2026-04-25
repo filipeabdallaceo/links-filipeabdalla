@@ -20,10 +20,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://links.filipeabdalla.com"),
   title: "Filipe Abdalla — Fisioterapeuta Esportivo",
   description:
-    "Qualificando profissionais com qualidade e excelência. Bootcamp Eletroterapia, cursos online e atendimento na clínica.",
+    "Resolvo dores e lesões com tecnologia avançada. Ensino Fisioterapeutas a fazerem o mesmo.",
   openGraph: {
     title: "Filipe Abdalla — Fisioterapeuta Esportivo",
-    description: "Qualificando profissionais com qualidade e excelência.",
+    description:
+      "Resolvo dores e lesões com tecnologia avançada. Ensino Fisioterapeutas a fazerem o mesmo.",
     url: "https://links.filipeabdalla.com",
     siteName: "Filipe Abdalla",
     images: [{ url: "/img/og.jpg", width: 1200, height: 630 }],
@@ -33,7 +34,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Filipe Abdalla — Fisioterapeuta Esportivo",
-    description: "Qualificando profissionais com qualidade e excelência.",
+    description:
+      "Resolvo dores e lesões com tecnologia avançada. Ensino Fisioterapeutas a fazerem o mesmo.",
     images: ["/img/og.jpg"],
   },
   icons: { icon: "/favicon.ico" },
