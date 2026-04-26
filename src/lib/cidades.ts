@@ -52,7 +52,8 @@ export const PROXIMAS_TURMAS: ProximaTurma[] = [
     uf: "MS",
     data: "2026-07-11",
     dataLabel: "11 · Julho · 2026",
-    status: "lista-espera",
+    status: "vagas-abertas",
+    bookingUrl: "https://www.asaas.com/c/0p4emxjy12jhi751",
   },
   {
     cidade: "Brasília",
@@ -60,7 +61,8 @@ export const PROXIMAS_TURMAS: ProximaTurma[] = [
     uf: "DF",
     data: "2026-09-19",
     dataLabel: "19 · Setembro · 2026",
-    status: "lista-espera",
+    status: "vagas-abertas",
+    bookingUrl: "https://www.asaas.com/c/0rqgbj8dvlnbhhrw",
   },
   {
     cidade: "São Paulo",
@@ -68,6 +70,7 @@ export const PROXIMAS_TURMAS: ProximaTurma[] = [
     uf: "SP",
     data: "2026-11-14",
     dataLabel: "14 · Novembro · 2026",
-    status: "lista-espera",
+    status: "vagas-abertas",
+    bookingUrl: "https://www.asaas.com/c/j4k6h1n1ybmc8bo0",
   },
 ];
